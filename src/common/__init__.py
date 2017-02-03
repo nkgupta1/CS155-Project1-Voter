@@ -5,9 +5,10 @@ in every file.
 """
 
 import numpy as np
+import keras
 import csv
 
-def importTrain(filename):
+def import_train(filename):
     """
     Imports training data and parses it
     """
@@ -19,10 +20,10 @@ def importTrain(filename):
     # (label)
     X_train = data_array[1:,1:-1]
     # remove first row (column labels), keep last column (label)
-    Y_train = data_array[1:,-1]
+    Y_train = keras.utils.np_utils.to_categorical(data_array[1:,-1])
     return X_train, Y_train
 
-def importTest(filename):
+def import_test(filename):
     """
     Imports test data and parses it
     """
