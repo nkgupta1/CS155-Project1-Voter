@@ -51,5 +51,8 @@ def import_test(filename):
 
     return X_train
     
-def remap_predictions():
+def predictions_to_number(y_labels):
+    """
+    Receives input of form [[0, 1]] and makes into [2]
+    """
     pass
