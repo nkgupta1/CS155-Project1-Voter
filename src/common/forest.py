@@ -13,7 +13,7 @@ try:
 except ImportError:
     raise ImportError('[!] Forest requires Scikit-Learn.')
 
-class ForestError(PydcaError):
+class ForestError():
     """
     Exceptions raised from errors involving random forests.
     """
@@ -112,68 +112,24 @@ class forest():
             predictions = self._run_layer(d, predictions)
 
         # Aggregated predictions
-        final_predictions = mode(predictions)[0]
+        final_predictions = mode(predictions)
 
         return final_predictions
 
-    def retrain(self, contacts_list, seq_list, pdb_list, depth=5, 
-                window=3, contact_distance=8.0, n_estimators=500, 
-                intra_information=True, accessibility=True,
-                real_distances=True):
+    def retrain(self, X, Y, depth=5):
         """
         Replaces the current forest (if present) with a new one,
         trained to the specified depth and parameters.
 
         Arguments:
-            contacts_list: A list of Contact objects to be used for
-                training.
-            seq_list: A list of sequences, to align pdbs and 
-                contacts
-            pdb_list: A list of pdb files to be used for training
-            depth: A certain number of forests are trained, each reading
-                the input of the previous one. All forests are saved in the
-                same folder. By default, 5 layers are trained.
-            window: Data from a window around a given contact is read. A 3x3
-                window, for instance, would involve data from the 8 contacts
-                surrounding the given contact as well. Larger window sizes
-                take longer to train, but provide more learnable parameters.
-            contact_distance: A matrix of target values is created, wherein
-                true contacts are marked as 1 and false contacts as 0. This 
-                is the threshold.
-            n_estimators: The number of estimators in the random forest.
-                The higher the number, the more accurate the forest, but
-                the slower it runs/trains.
-            intra_information: If true, will use scores/distances/info
-                from intra protein contacts for training.
-            accessibility: If true, will train with accessibility data.
-            real_distances: If true, will train with real distances from
-                protein (parsed from pdb file). If false, will use scores
-                as found in intra contacts.
-
-        Please note that pdbs list and Contact_list must be aligned, i.e.
-        the pdb at index i must correspond to the Contact at index i. 
+            X: input data
+            Y: target predictions
+            depth: number of layers trained 
         """
 
-        # Check that input is valid. Input is checked before proceeding
-        # because this method is very slow, and encountering an error
-        # midway through would be very frustrating.
-        for contact in contacts_list:
-            if type(contact) != Contact:
-                raise ContactError('[!] Invalid object passed to forest ' +
-                                   'retrain method: {0}'
-                                   .format(contact))
-        for pdb in pdb_list:
-            # Parse it with a random Contact; parse_structure is basically
-            # static
-            contacts_list[0]._parse_structure(pdb)
+        # Check dimensions of input arrays
+        assert X.shape[0] == Y.shape[0] # ???
 
-        if ((len(pdb_list) != len(contacts_list)) or
-            (len(pdb_list) != len(seq_list))):
-            raise ForestError('[!] Training data must be aligned: pdb list, ' +
-                              'contacts list, and sequences list have ' +
-                              'different input length ({0}, {1} and {2})'
-                              .format(len(pdb_list), len(contacts_list),
-                              len(seq_list)))
 
         # Input valid. Go ahead and destroy any random forest already present
         # in the folder.

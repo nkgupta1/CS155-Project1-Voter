@@ -5,7 +5,7 @@ in every file.
 """
 
 # Commonly used functions
-from common import *
+from .common import *
 
 # Random forest
-from forest import *
+from .forest import *
