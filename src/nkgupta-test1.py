@@ -12,7 +12,12 @@ import tensorflow as tf
 
 X_train_2008, Y_train_2008 = import_train('../data/train_2008.csv')
 
+print(X_train_2008.shape)
+print(Y_train_2008.shape)
 
 # model = Sequential()
 
 # model.add(Dense(750))
+# model.add(Activation('relu'))
+# model.add(Dropout(0.1))
+

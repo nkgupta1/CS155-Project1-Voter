@@ -5,7 +5,6 @@ in every file.
 """
 
 import numpy as np
-import keras
 import csv
 
 def mode(ndarray,axis=0):
@@ -52,8 +51,7 @@ def import_train(filename):
     Imports training data and parses it.
     Removes column labels and id column
     Converts entries to ints
-    Converts labels to one hot vector
-    Remove first entry in one hot vector (needs to be added back in later)
+    Converts labels to 0 to not vote and 1 to vote
     """
     with open(filename,'r') as dest_f:
         data_iter = csv.reader(dest_f, delimiter=',')
@@ -69,7 +67,8 @@ def import_train(filename):
     X_train = data_array[:, :-1]
     # keep last column (label) and make into one hot vector
     # remove first entry in one hot vector because doesn't correspond to anything
-    Y_train = keras.utils.np_utils.to_categorical(data_array[:, -1])[:,1:]
+    Y_train = 2 - data_array[:, -1]
+    
 
     return X_train, Y_train
 
@@ -92,9 +91,8 @@ def import_test(filename):
     
 def predictions_to_number(y_labels):
     """
-    Receives input of form [[0, 1]] and makes into [2]
+    Receives input of list of did not vote (0) or vote (1) required format of
+    not vote (2) or vote (1)
     """
-    # Only need index of 2nd dimension
-    # + 1 to add in removed entry
-    return np.nonzero(y_labels)[1]+1
+    return 2 - y_labels
 
