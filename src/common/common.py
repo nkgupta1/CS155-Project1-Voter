@@ -94,4 +94,7 @@ def predictions_to_number(y_labels):
     """
     Receives input of form [[0, 1]] and makes into [2]
     """
-    pass
+    # Only need index of 2nd dimension
+    # + 1 to add in removed entry
+    return np.nonzero(y_labels)[1]+1
+
