@@ -4,8 +4,8 @@
 in every file.
 """
 
-import numpy as np
-import csv
+# Commonly used functions
+from .common import *
 
 def import_train(filename):
     """
@@ -33,3 +33,5 @@ def import_test(filename):
     X_train = data_array.astype(np.float32)
     return X_train
     
+# Random forest
+from .forest import *
