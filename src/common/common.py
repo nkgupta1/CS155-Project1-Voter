@@ -89,14 +89,41 @@ def import_test(filename):
 
     return X_train
     
+def save_parsed_data():
+    """
+    Saves data as binary in parsed format
+    Much quicker to run
+    Must be run from src
+    """
+    X_train_2008, Y_train_2008 = import_train('../data/raw/train_2008.csv')
+    test_2008 = import_test('../data/raw/test_2008.csv')
+    test_2012 = import_test('../data/raw/test_2012.csv')
+
+    joblib.dump(X_train_2008, '../data/X_train_2008.pkl')
+    joblib.dump(Y_train_2008, '../data/Y_train_2008.pkl')
+    joblib.dump(test_2008, '../data/X_test_2008.pkl')
+    joblib.dump(test_2012, '../data/X_test_2012.pkl')
+
 def train_2008():
+    """
+    Gets data and labels from the 2008 training set
+    Must be run from src
+    """
     return joblib.load('../data/X_train_2008.pkl'), joblib.load('../data/Y_train_2008.pkl')
 
 def test_2008():
-    return joblib.load('../data/test_2008.pkl')
+    """
+    Gets data from the 2008 test set
+    Must be run from src
+    """
+    return joblib.load('../data/X_test_2008.pkl')
 
 def test_2012():
-    return joblib.load('../data/test_2012.pkl')
+    """
+    Gets data from the 2012 test set
+    Must be run from src
+    """
+    return joblib.load('../data/X_test_2012.pkl')
 
 def predictions_to_number(y_labels):
     """
