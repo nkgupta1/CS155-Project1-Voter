@@ -66,8 +66,7 @@ def import_train(filename):
      
     # remove last column (label)
     X_train = data_array[:, :-1]
-    # keep last column (label) and make into one hot vector
-    # remove first entry in one hot vector because doesn't correspond to anything
+    # keep last column (label) and map 2 -> 0 (not vote) and 1 -> 1 (vote)
     Y_train = 2 - data_array[:, -1]
     
     return X_train, Y_train
@@ -82,7 +81,7 @@ def import_test(filename):
     with open(filename,'r') as dest_f:
         data_iter = csv.reader(dest_f, delimiter=',')
         data = [data for data in data_iter]
-        
+
     # remove first row (column labels)
     data_array = np.asarray(data)[1:, :]
 
