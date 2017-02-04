@@ -3,9 +3,12 @@
 from common import *
 from sklearn.externals import joblib
 
-save_parsed_data()
+# save_parsed_data()
 
-# print(X.shape)
+X, Y = test_2012()
+
+print(X.shape)
+print(Y.shape)
 
 # joblib.dump(X, '../data/X_test_2008.pkl')
 
