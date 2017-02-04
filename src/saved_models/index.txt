@@ -1,0 +1,8 @@
+nkgupta:
+nn-500-250-*.h5
+    stuck in a local minimum where it is classifying everything as 1s
+svc-default.jl
+    default sklearn svc trained on whole data set
+    trained in 200 minutes
+    maybe memorized training data?
+    

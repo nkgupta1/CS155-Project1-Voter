@@ -7,7 +7,9 @@ report.out
 report.synctex.gz
 
 # 
-data/*.pkl
+*.pkl
+*.h5
+*.jl
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
