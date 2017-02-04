@@ -2,6 +2,7 @@
 
 from common import *
 from sklearn import svm
+from sklearn.externals import joblib
 
 X_train_2008, Y_train_2008 = train_2008()
 clf = svm.SVC()
