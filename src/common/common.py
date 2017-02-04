@@ -6,6 +6,7 @@ in every file.
 
 import numpy as np
 import csv
+from sklearn.externals import joblib
 
 def mode(ndarray,axis=0):
     """
@@ -69,7 +70,6 @@ def import_train(filename):
     # remove first entry in one hot vector because doesn't correspond to anything
     Y_train = 2 - data_array[:, -1]
     
-
     return X_train, Y_train
 
 def import_test(filename):
@@ -89,6 +89,15 @@ def import_test(filename):
 
     return X_train
     
+def train_2008():
+    return joblib.load('../data/X_train_2008.pkl'), joblib.load('../data/Y_train_2008.pkl')
+
+def test_2008():
+    return joblib.load('../data/test_2008.pkl')
+
+def test_2012():
+    return joblib.load('../data/test_2012.pkl')
+
 def predictions_to_number(y_labels):
     """
     Receives input of list of did not vote (0) or vote (1) required format of

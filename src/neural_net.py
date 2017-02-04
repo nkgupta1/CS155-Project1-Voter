@@ -3,7 +3,7 @@
 A naive test on the 2008 data.
 """
 
-from common import import_train
+from common import *
 import numpy as np 
 import tensorflow as tf 
 import keras
@@ -50,7 +50,7 @@ def eval(model, X, Y):
     print('Test accuracy:', score[1])
     
 
-X_train_2008, Y_train_2008 = import_train('../data/train_2008.csv')
+X_train_2008, Y_train_2008 = train_2008()
 model = net(X_train_2008, Y_train_2008)
 save(model, 'nn-500-250')
 # model = load('nn-750-500-250')
