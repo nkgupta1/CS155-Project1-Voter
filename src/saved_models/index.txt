@@ -4,5 +4,5 @@ nn-500-250-*.h5
 svc-default.jl
     default sklearn svc trained on whole data set
     trained in 200 minutes
-    maybe memorized training data?
+    predicts most things as 1s
     
