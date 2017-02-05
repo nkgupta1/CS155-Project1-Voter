@@ -14,7 +14,7 @@ svc-default-vect.jl
 
 veb:
 formating of saved models:
-	a-type-in_accuracy-fraction_data_used-time_seconds
+    a-type-in_accuracy-fraction_data_used-time_seconds
     b-type-iterations-C_penalty-in_accuracy-fraction_data_used-time_seconds
     c-type-tolerance-alpha_penalty-in_accuracy-time_seconds
     d-type-layers-stopping_tolerance-accuracy-time_seconds
@@ -24,8 +24,8 @@ saved:
     a-SVM_10poly-0.747490992314-0.1-164
     a-SVM_15poly-0.745171416642-0.1-172
     a-SVM_linear-0.699831444168-0.01-6
-	a-SVM_linear-0.762351740455-0.1-124
-	a-SVM_rbf-0.75707857176-0.1-230
+    a-SVM_linear-0.762351740455-0.1-124
+    a-SVM_rbf-0.75707857176-0.1-230
     a-SVM_rbf-0.769155829094-0.2-276
     a-SVM_rbf-0.782238235885-0.5-1050
     a-SVM_rbf-0.801320611749-False-3521
@@ -49,8 +49,8 @@ saved:
     d-MLP-(500,)-0.0001-0.979587734084-522
 
 
-unsaved (due to sklearn not returning the classifier in cross validation):
-	SVM_linear, cv=5, frac=0.033, 0.7384 accuracy, 17 seconds
+unsaved/cross-validation (no save b/c no return of classifier in cross validation):
+    SVM_linear, cv=5, frac=0.033, 0.7384 accuracy, 17 seconds
     SVM_linear, cv=5, frac=0.1, 0.7601 accuracy, 164 seconds
     SVM_rbf, cv=5, all, 0.76797 accuracy, 8460 seconds
     LogisticRegression, sag, cv=5, 25iter, converged, 1e-5C, all, 0.774 accuracy
