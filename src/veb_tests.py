@@ -10,3 +10,6 @@ x, y = import_train('../data/train_2008.csv')
 x = import_test('../data/test_2008.csv')
 
 # veb will start out with some svm, linear regression, clustering, and stuff
+
+
+# final submission should have categorical labels 1, 2, 3, etc. as strings, not floats
