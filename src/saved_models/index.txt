@@ -15,14 +15,68 @@ svc-default-vect.jl
 veb:
 formating of saved models:
 	a-type-in_accuracy-fraction_data_used-time_seconds
+    b-type-iterations-C_penalty-in_accuracy-fraction_data_used-time_seconds
+    c-type-tolerance-alpha_penalty-in_accuracy-time_seconds
+    d-type-layers-stopping_tolerance-accuracy-time_seconds
 
 saved:
-	a-SVM_linear-0.699831444168-0.01-6
+    a-SVM_3poly-0.757202282462-0.1-117
+    a-SVM_10poly-0.747490992314-0.1-164
+    a-SVM_15poly-0.745171416642-0.1-172
+    a-SVM_linear-0.699831444168-0.01-6
 	a-SVM_linear-0.762351740455-0.1-124
 	a-SVM_rbf-0.75707857176-0.1-230
+    a-SVM_rbf-0.769155829094-0.2-276
+    a-SVM_rbf-0.782238235885-0.5-1050
+    a-SVM_rbf-0.801320611749-False-3521
+    b-LOGR_sag-25-1e-05-0.746655945072-False-3
+    b-LOGR_liblinear-100-1-0.777367126974-False-78 (converged in 9)
+    b-SGD_hinge-5-0.0001-0.72741893083--0
+    b-SGD_hinge-50-0.0001-0.747552847666--2
+    b-SGD_hinge-500-0.0001-0.771599115468--27
+    b-SGD_hinge-2500-0.0001-0.770130050876-148
+    c-LASSO-1e-05-0.1-0.744614718481-1
+    c-LASSO-1e-05-0.001-0.773485703682-9
+    c-LASSO-1e-05-0.2-0.744614718481-0
+    c-LASSO-1e-05-1.0-0.744614718481-1
+    c-RIDGE-1e-05-0.0-0.776253730651-5
+    c-RIDGE-1e-05-1.0-0.777243416271-0
+    c-RIDGE-1e-05-10000.0-0.772727975629-0
+    c-RIDGE-1e-05-1000000.0-0.744568326967-0
+    d-MLP-(5, 2)-0.0001-0.783398023722-13
+    d-MLP-(100,)-0.0001-0.879876907851-153
+    d-MLP-(500, 100)-0.0001-0.97706712852-539
+    d-MLP-(500,)-0.0001-0.979587734084-522
 
-unsaved (due to sklearn not returning the classifier):
-	SVM_linear, cv=5, first 2000 samples, 0.7384 accuracy, 17 seconds
 
+unsaved (due to sklearn not returning the classifier in cross validation):
+	SVM_linear, cv=5, frac=0.033, 0.7384 accuracy, 17 seconds
+    SVM_linear, cv=5, frac=0.1, 0.7601 accuracy, 164 seconds
+    SVM_rbf, cv=5, all, 0.76797 accuracy, 8460 seconds
+    LogisticRegression, sag, cv=5, 25iter, converged, 1e-5C, all, 0.774 accuracy
+    LogisticRegression, sag, cv=5, 25iter, no convergence, 1C, all, 0.773 accuracy
+    LogisticRegression, sag, cv=5, 100iter, no convergence, 1C, all, 0.773 accuracy
+    LogisticRegression, sag, cv=5, 100iter, no convergence, 100000C, all, 0.773 accuracy
+    LogisticRegression, sag, cv=5, 400iter, no convergence, 1C, all, 0.773 accuracy
+    LogisticRegression, liblinear, cv=5, 100iter, no convergence, 1C, all, 0.774 accuracy
+    Ridge, alpha=20, cv=5, all, 0.77375 accuracy (best alpha)
+    Lasso, alpha=0.001, cv=4, all, 0.7718 accuracy (best alpha)
+    MLP, layers (500, 100), tol=0.005, cv=3, all, 0.734 accuracy
+    MLP, layers (200, 100), tol=0.02, cv=3, all, 0.766 accuracy
+    MLP, layers (200, 100), tol=0.005, cv=3, all, 0.727 accuracy
+    MLP, layers (100, 50, 10), tol=0.02, cv=3, all, 0.771 accuracy
+    MLP, layers (100, 50, 10), tol=0.0001, cv=3, all, 0.717 accuracy
+    MLP, layers (30, 20, 10), tol=0.0001, cv=3, all, 0.743 accuracy
+    MLP, layers (50, 50), tol=0.0001, cv=3, all, 0.723 accuracy
+    MLP, layers (50, 10), tol=0.0001, cv=3, all, 0.734 accuracy
+    MLP, layers (100), tol=2, cv=3, all, 0.771 accuracy
+    MLP, layers (100), tol=0.02, cv=3, all, 0.771 accuracy
+    MLP, layers (100), tol=0.01, cv=3, all, 0.770 accuracy
+    MLP, layers (100), tol=0.005, cv=3, all, 0.765 accuracy
+    MLP, layers (100), tol=0.0001, cv=3, all, 0.730 accuracy
+    MLP, layers (500), tol=0.0001, cv=3, all, 0.733 accuracy
+    MLP, layers (1000), tol=1, cv=3, all, 0.77 accuracy
+    MLP, layers (1000), tol=.02, cv=3, all, 0.77 accuracy
+    MLP, layers (1000), tol=.005, cv=3, all, 0.73 accuracy
 
 
