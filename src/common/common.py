@@ -145,7 +145,12 @@ def predictions_to_number(y_labels):
     return 2 - y_labels
 
 def format_results(ids, Y):
+    """
+    Takes in a 1d array of ids and a 1d array of predictions where 0 is not vote
+    and 1 is vote
+    """
     Y = predictions_to_number(Y)
     to_ret = 'id,PES1\n'
-    for i in length(ids):
+    for i in range(len(ids)):
         to_ret += ids[i] + ',' + str(Y[i]) + '\n'
+    return to_ret

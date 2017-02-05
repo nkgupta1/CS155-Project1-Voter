@@ -6,6 +6,11 @@ svc-default.jl
     trained in 200 minutes
     predicts most things as 1s
     
+svc-default-vect.jl
+    default sklearn svc trained on whole data set
+    remapped 0 to -1 on labels
+    predicts most things as 1s
+
 
 veb:
 	formating of saved models:
@@ -15,4 +20,6 @@ veb:
 		a-SVM_linear-0.762351740455-0.1-124
 	unsaved (due to sklearn not returning the classifier):
 		SVM_linear, cv=5, first 2000 samples, 0.7384 accuracy, 17 seconds
+
+
 
