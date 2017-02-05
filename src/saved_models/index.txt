@@ -5,4 +5,8 @@ svc-default.jl
     default sklearn svc trained on whole data set
     trained in 200 minutes
     predicts most things as 1s
-    
+svc-default-vect.jl
+    default sklearn svc trained on whole data set
+    remapped 0 to -1 on labels
+    predicts most things as 1s
+

@@ -50,15 +50,15 @@ def eval(model, X, Y):
     print('Test accuracy:', score[1])
     
 
-X_train_2008, Y_train_2008 = train_2008()
-model = net(X_train_2008, Y_train_2008)
-save(model, 'nn-500-250')
+# X_train_2008, Y_train_2008 = train_2008()
+# model = net(X_train_2008, Y_train_2008)
+# save(model, 'nn-500-250')
  
-# X_test, ids = test_2008() 
-# model = load('nn-500-250')
+X_test, ids = test_2008() 
+model = load('nn-500-250')
 # print(model.get_weights())
-# predictions = model.predict(X_test)
-# print(sum(predictions))
+predictions = model.predict(X_test)
+print(sum(predictions))
 
 # to try and prevent an exception
 import gc; gc.collect()

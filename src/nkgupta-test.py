@@ -3,7 +3,9 @@
 from common import *
 from sklearn import svm
 
-X_train_2008, Y_train_2008 = train_2008()
-clf = svm.SVC()
-clf.fit(X_train_2008, Y_train_2008)
-print(clf.score(X_train_2008, Y_train_2008))
+
+data_array = np.loadtxt('saved_models/svm-default-vect-2008-predict.txt', dtype=np.int32)
+_, ids = test_2008()
+
+with open('submissions/1.csv','w') as dest_f:
+    dest_f.write(format_results(ids, data_array))
