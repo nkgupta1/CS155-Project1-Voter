@@ -6,3 +6,13 @@ svc-default.jl
     trained in 200 minutes
     predicts most things as 1s
     
+
+veb:
+	formating of saved models:
+		a-type-in_accuracy-fraction_data_used-time_seconds
+	saved:
+		a-SVM_linear-0.699831444168-0.01-6
+		a-SVM_linear-0.762351740455-0.1-124
+	unsaved (due to sklearn not returning the classifier):
+		SVM_linear, cv=5, first 2000 samples, 0.7384 accuracy, 17 seconds
+
