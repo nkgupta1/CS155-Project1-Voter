@@ -6,6 +6,11 @@ report.log
 report.out
 report.synctex.gz
 
+# 
+*.pkl
+*.h5
+*.jl
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

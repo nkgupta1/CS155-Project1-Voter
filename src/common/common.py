@@ -6,6 +6,7 @@ in every file.
 
 import numpy as np
 import csv
+from sklearn.externals import joblib
 
 def mode(ndarray,axis=0):
     """
@@ -65,11 +66,9 @@ def import_train(filename):
      
     # remove last column (label)
     X_train = data_array[:, :-1]
-    # keep last column (label) and make into one hot vector
-    # remove first entry in one hot vector because doesn't correspond to anything
+    # keep last column (label) and map 2 -> 0 (not vote) and 1 -> 1 (vote)
     Y_train = 2 - data_array[:, -1]
     
-
     return X_train, Y_train
 
 def import_test(filename):
@@ -77,18 +76,67 @@ def import_test(filename):
     Imports test data and parses it
     Removes column labels and id column
     Converts entries to ints
+    Return ids separately
     """
     with open(filename,'r') as dest_f:
         data_iter = csv.reader(dest_f, delimiter=',')
         data = [data for data in data_iter]
-    # remove first row (column labels), first column (id)
-    data_array = np.asarray(data)[1:, 1:]
+
+    # remove first row (column labels)
+    data_array = np.asarray(data)[1:, :]
+
+    # keep only first column (id)
+    ids = data_array[:, 0]
+
+    # remove first column (id)
+    data_array = np.asarray(data_array)[:, 1:]
+
 
     # convert to 32-bit int
     X_train = data_array.astype(np.int32)
 
-    return X_train
+    return X_train, ids
     
+def save_parsed_data():
+    """
+    Saves data as binary in parsed format
+    Much quicker to run
+    Must be run from src
+    """
+    X_train_2008, Y_train_2008 = import_train('../data/raw/train_2008.csv')
+    test_2008, id_2008 = import_test('../data/raw/test_2008.csv')
+    test_2012, id_2012 = import_test('../data/raw/test_2012.csv')
+
+    joblib.dump(X_train_2008, '../data/X_train_2008.pkl')
+    joblib.dump(Y_train_2008, '../data/Y_train_2008.pkl')
+
+    joblib.dump(test_2008, '../data/X_test_2008.pkl')
+    joblib.dump(id_2008, '../data/id_test_2008.pkl')
+
+    joblib.dump(test_2012, '../data/X_test_2012.pkl')
+    joblib.dump(id_2012, '../data/id_test_2012.pkl')
+
+def train_2008():
+    """
+    Gets data and labels from the 2008 training set
+    Must be run from src
+    """
+    return joblib.load('../data/X_train_2008.pkl'), joblib.load('../data/Y_train_2008.pkl')
+
+def test_2008():
+    """
+    Gets data from the 2008 test set
+    Must be run from src
+    """
+    return joblib.load('../data/X_test_2008.pkl'), joblib.load('../data/id_test_2008.pkl')
+
+def test_2012():
+    """
+    Gets data from the 2012 test set
+    Must be run from src
+    """
+    return joblib.load('../data/X_test_2012.pkl'), joblib.load('../data/id_test_2012.pkl')
+
 def predictions_to_number(y_labels):
     """
     Receives input of list of did not vote (0) or vote (1) required format of
@@ -96,3 +144,8 @@ def predictions_to_number(y_labels):
     """
     return 2 - y_labels
 
+def format_results(ids, Y):
+    Y = predictions_to_number(Y)
+    to_ret = 'id,PES1\n'
+    for i in length(ids):
+        to_ret += ids[i] + ',' + str(Y[i]) + '\n'
