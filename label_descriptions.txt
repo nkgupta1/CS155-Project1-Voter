@@ -317,6 +317,7 @@ PEJHWKO
 PUJHDP1O
     binary
 PEJHRSN
+    category
 PEJHWANT
     binary
 PUJHCK1
