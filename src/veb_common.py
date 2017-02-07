@@ -18,9 +18,9 @@ def normalized_categorized_data():
     X_train, Y_train = X_train.astype(np.float32), Y_train.astype(np.float32)
     #for arr in [X_train, Y_train]:
     #   print arr.shape, arr.dtype
-    mean, std = np.mean(X_train, axis=0), np.std(X_train, axis=0)
-    std[std == 0] = 1  # in case values are constant for entire column
-    X_train = (X_train - mean) / std
+    # mean, std = np.mean(X_train, axis=0), np.std(X_train, axis=0)
+    # std[std == 0] = 1  # in case values are constant for entire column
+    # X_train = (X_train - mean) / std
     return X_train, Y_train
 
 def save_prediction(name, clf, year, categorized):
