@@ -30,7 +30,7 @@ def NNC(layers, tol=0.0001, max_iter=100000, cv=True):
         clf.fit(X, Y)
         finish = time.time()
         score = clf.score(X_train, Y_train)
-        print score
+        print(score)
         # print np.mean(clf.predict(X_train)), np.mean(Y_train)
         save_name = 'd-MLP-' + str(layers) + '-' + str(max_iter)
         save_name += '-' + str(score) + '-' + str(int(time.time() - start))
@@ -39,7 +39,7 @@ def NNC(layers, tol=0.0001, max_iter=100000, cv=True):
 
 
 
-NNC((500, 150), tol=.00001, max_iter=2, cv=True)
+NNC((500, 150), tol=.00001, max_iter=5, cv=True)
 
 #clf_to_prediction(2008, 'd-MLP-200-1-0.79777939289-47')
 
