@@ -1,7 +1,7 @@
 HRMONTH
-    category
+    delete
 HRYEAR4
-    category
+    delete
 HURESPLI
     category
 HUFINAL
