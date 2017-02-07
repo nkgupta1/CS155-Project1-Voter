@@ -1,15 +1,17 @@
+#!/usr/bin/env python3
+
 import numpy as np
 import time
 from common import *
-#import keras
-#import sklearn
-
-#print(train_data.shape, train_data.dtype)
-
-x, y = import_train('../data/train_2008.csv')
-x = import_test('../data/test_2008.csv')
-
-# veb will start out with some svm, linear regression, clustering, and stuff
+from sklearn.linear_model import LinearRegression, LogisticRegression, Lasso, Ridge
+from sklearn.model_selection import cross_val_score
+from sklearn.externals import joblib
+from veb_common import normalized_data, save_prediction, clf_to_prediction 
 
 
-# final submission should have categorical labels 1, 2, 3, etc. as strings, not floats
+threads = 1
+
+X_train, Y_train = normalized_data()
+
+print 'hello world'
+

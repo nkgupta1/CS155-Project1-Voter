@@ -1,412 +1,762 @@
 HRMONTH
-    month of interview
+    category
 HRYEAR4
-    year of interview
+    category
 HURESPLI
-    line number of current respondent
+    category
 HUFINAL
-    final outcome [of interview] code
-    categorical
+    category
 HUSPNISH
-    is spanish the only language spoken by all members who are >= 15
     binary
 HETENURE
-    are your living quarters...
-    categorical
+    category
 HEHOUSUT
-    type of housing unit
-    categorical
+    category
 HETELHHD
-    is there a telephone in this house/apartment
     binary/refused
 HETELAVL
-    telephone elsewhere
     binary/refused
 HEPHONEO
-    telephone interview acceptable
     binary/refused
 HUFAMINC
-    family income
-    linear
+    integer
 HUTYPEA
-    non-interview reason
-    categorical
+    category
 HUTYPB
-    non-interview reason
-    categorical
+    category
 HUTYPC
-    non-interview reason
-    categorical
+    category
 HWHHWGT
-    household weight
     integer
 HRINTSTA
-    interview status
-    categorical
+    category
 HRNUMHOU
-    
+    integer
 HRHTYPE
+    category
 HRMIS
+    category
 HUINTTYP
+    category
 HUPRSCNT
+    integer
 HRLONGLK
+    category
 HRHHID2
+    category
 HUBUS
+    category
 HUBUSL1
+    category
 HUBUSL2
+    category
 HUBUSL3
+    category
 HUBUSL4
+    category
 GEREG
+    category
 GESTCEN
+    category
 GESTFIPS
+    category
 GTCBSA
+    category
 GTCO
+    category
 GTCBSAST
+    category
 GTMETSTA
+    category
 GTINDVPC
+    category
 GTCBSASZ
+    integer
 GTCSA
+    category
 PERRP
+    category
 PEPARENT
+    category
 PEAGE
+    category
 PRTFAGE
-PEMARITL
+    category
+PEMARITL (iffy)
+    integer
 PESPOUSE
+    category
 PESEX
+    category
 PEAFEVER
+    binary
 PEAFNOW
+    binary
 PEEDUCA
+    integer
 PTDTRACE
+    category
 PRDTHSP
+    category
 PUCHINHH
+    category
 PULINENO
+    category
 PRFAMNUM
+    category
 PRFAMREL
+    category
 PRFAMTYP
+    category
 PEHSPNON
+    category
 PRMARSTA
+    category
 PRPERTYP
+    category
 PENATVTY
+    category
 PEMNTVTY
+    category
 PEFNTVTY
+    category
 PRCITSHP
+    category
 PRCITFLG
+    category
 PRINUSYR
+    integer
 PUSLFPRX
+    category
 PEMLR
+    category
 PUWK
+    category
 PUBUS1
+    binary/refused
 PUBUS2OT
+    binary
 PUBUSCK1
+    category
 PUBUSCK2
+    category
 PUBUSCK3
+    category
 PUBUSCK4
+    category
 PURETOT
+    category
 PUDIS
+    category
 PERET1
+    category
 PUDIS1
+    binary/refused
 PUDIS2
+    category
 PUABSOT
+    category
 PULAY
+    category
 PEABSRSN
+    category
 PEABSPDO
+    binary
 PEMJOT
+    binary
 PEMJNUM
+    integer
 PEHRUSL1
+    integer
 PEHRUSL2
+    integer
 PEHRFTPT
+    category
 PEHRUSLT
+    integer
 PEHRWANT
+    category
 PEHRRSN1
+    category
 PEHRRSN2
+    category
 PEHRRSN3
+    category
 PUHROFF1
+    binary/refused
 PUHROFF2
+    integer
 PUHROT1
+    binary/refused
 PUHROT2
+    integer
 PEHRACT1
+    integer
 PEHRACT2
+    integer
 PEHRACTT
+    integer
 PEHRAVL
+    binary
 PUHRCK1
+    category
 PUHRCK2
+    category
 PUHRCK3
+    category
 PUHRCK4
+    category
 PUHRCK5
+    category
 PUHRCK6
+    category
 PUHRCK7
+    category
 PUHRCK12
+    category
 PULAYDT
+    binary/refused
 PULAY6M
+    binary/refused
 PELAYAVL
+    binary
 PULAYAVR
+    category
 PELAYLK
+    binary
 PELAYDUR
+    integer
 PELAYFTO
+    binary
 PULAYCK1
+    category
 PULAYCK2
+    category
 PULAYCK3
+    category
 PULK
+    category
 PELKM1
+    category
 PULKM2
+    category
 PULKM3
+    category
 PULKM4
+    category
 PULKM5
+    category
 PULKM6
+    category
 PULKDK1
+    category
 PULKDK2
+    category
 PULKDK3
+    category
 PULKDK4
+    category
 PULKDK5
+    category
 PULKDK6
+    category
 PULKPS1
+    category
 PULKPS2
+    category
 PULKPS3
+    category
 PULKPS4
+    category
 PULKPS5
+    category
 PULKPS6
+    category
 PELKAVL
+    binary
 PULKAVR
+    category
 PELKLL1O
+    category
 PELKLL2O
+    category
 PELKLWO
+    category
 PELKDUR
+    integer
 PELKFTO
+    category
 PEDWWNTO
+    category
 PEDWRSN
+    category
 PEDWLKO
+    binary
 PEDWWK
+    binary
 PEDW4WK
+    binary
 PEDWLKWK
+    binary
 PEDWAVL
+    binary
 PEDWAVR
+    category
 PUDWCK1
+    category
 PUDWCK2
+    category
 PUDWCK3
+    category
 PUDWCK4
+    category
 PUDWCK5
+    category
 PEJHWKO
+    binary
 PUJHDP1O
+    binary
 PEJHRSN
+    category
 PEJHWANT
+    binary
 PUJHCK1
+    category
 PUJHCK2
+    category
 PRABSREA
+    category
 PRCIVLF
+    binary
 PRDISC
+    category
 PREMPHRS
+    category
 PREMPNOT
+    category
 PREXPLF
+    binary
 PRFTLF
+    binary
 PRHRUSL
+    integer
 PRJOBSEA
+    category
 PRPTHRS
+    category
 PRPTREA
+    category
 PRUNEDUR
+    integer
 PRUNTYPE
+    category
 PRWKSCH
+    category
 PRWKSTAT
+    category
 PRWNTJOB
+    binary
 PUJHCK3
+    category
 PUJHCK4
+    category
 PUJHCK5
+    category
 PUIODP1
+    binary/refused
 PUIODP2
+    binary/refused
 PUIODP3
+    binary/refused
 PEIO1COW
+    category
 PUIO1MFG
+    category
 PEIO2COW
+    category
 PUIO2MFG
+    category
 PUIOCK1
+    category
 PUIOCK2
+    category
 PUIOCK3
+    category
 PRIOELG
+    category
 PRAGNA
+    binary
 PRCOW1
+    category
 PRCOW2
+    category
 PRCOWPG
+    binary
 PRDTCOW1
+    category
 PRDTCOW2
+    category
 PRDTIND1
+    category
 PRDTIND2
+    category
 PRDTOCC1
+    category
 PRDTOCC2
+    category
 PREMP
+    category
 PRMJIND1
+    category
 PRMJIND2
+    category
 PRMJOCC1
+    category
 PRMJOCC2
+    category
 PRMJOCGR
+    category
 PRNAGPWS
+    category
 PRNAGWS
+    category
 PRSJMJ
+    binary
 PRERELG
+    category
 PEERNUOT
+    binary
 PEERNPER
+    integer
 PEERNRT
+    binary/refused
 PEERNHRY
+    binary
 PUERNH1C
+    integer
 PEERNH2
+    integer
 PEERNH1O
+    integer
 PRERNHLY
+    integer
 PTHR
+    category
 PEERNHRO
+    integer
 PRERNWA
+    integer
 PTWK
+    category
 PEERN
+    integer
 PUERN2
+    integer
 PTOT
+    category
 PEERNWKP
+    integer
 PEERNLAB
+    binary
 PEERNCOV
+    binary
 PENLFJH
+    category
 PENLFRET
+    binary
 PENLFACT
+    category
 PUNLFCK1
+    binary
 PUNLFCK2
+    binary
 PESCHENR
+    binary
 PESCHFT
+    binary
 PESCHLVL
+    binary
 PRNLFSCH
+    binary
 PWFMWGT
+    integer
 PWLGWGT
+    integer
 PWORWGT
+    integer
 PWSSWGT
+    integer
 PWVETWGT
+    integer
 PRCHLD
+    integer
 PRNMCHLD
+    integer
 PRWERNAL
+    category
 PRHERNAL
+    category
 HXTENURE
+    category
 HXHOUSUT
+    category
 HXTELHHD
+    category
 HXTELAVL
+    category
 HXPHONEO
+    category
 PXINUSYR
+    category
 PXRRP
+    category
 PXPARENT
+    category
 PXAGE
+    category
 PXMARITL
+    category
 PXSPOUSE
+    category
 PXSEX
+    category
 PXAFWHN1
+    category
 PXAFNOW
+    category
 PXEDUCA
+    category
 PXRACE1
+    category
 PXNATVTY
+    category
 PXMNTVTY
+    category
 PXFNTVTY
+    category
 PXHSPNON
+    category
 PXMLR
+    category
 PXRET1
+    category
 PXABSRSN
+    category
 PXABSPDO
+    category
 PXMJOT
+    category
 PXMJNUM
+    category
 PXHRUSL1
+    category
 PXHRUSL2
+    category
 PXHRFTPT
+    category
 PXHRUSLT
+    category
 PXHRWANT
+    category
 PXHRRSN1
+    category
 PXHRRSN2
+    category
 PXHRACT1
+    category
 PXHRACT2
+    category
 PXHRACTT
+    category
 PXHRRSN3
+    category
 PXHRAVL
+    category
 PXLAYAVL
+    category
 PXLAYLK
+    category
 PXLAYDUR
+    category
 PXLAYFTO
+    category
 PXLKM1
+    category
 PXLKAVL
+    category
 PXLKLL1O
+    category
 PXLKLL2O
+    category
 PXLKLWO
+    category
 PXLKDUR
+    category
 PXLKFTO
+    category
 PXDWWNTO
+    category
 PXDWRSN
+    category
 PXDWLKO
+    category
 PXDWWK
+    category
 PXDW4WK
+    category
 PXDWLKWK
+    category
 PXDWAVL
+    category
 PXDWAVR
+    category
 PXJHWKO
+    category
 PXJHRSN
+    category
 PXJHWANT
+    category
 PXIO1COW
+    category
 PXIO1ICD
+    category
 PXIO1OCD
+    category
 PXIO2COW
+    category
 PXIO2ICD
+    category
 PXIO2OCD
+    category
 PXERNUOT
+    category
 PXERNPER
+    category
 PXERNH1O
+    category
 PXERNHRO
+    category
 PXERN
+    category
 PXERNWKP
+    category
 PXERNRT
+    category
 PXERNHRY
+    category
 PXERNH2
+    category
 PXERNLAB
+    category
 PXERNCOV
+    category
 PXNLFJH
+    category
 PXNLFRET
+    category
 PXNLFACT
+    category
 PXSCHENR
+    category
 PXSCHFT
+    category
 PXSCHLVL
+    category
 QSTNUM
+    delete
 OCCURNUM
+    category
 PEDIPGED
+    binary
 PEHGCOMP
+    integer
 PECYC
+    integer
 PEGRPROF
+    binary
 PEGR6COR
+    binary
 PEMS123
+    integer
 PXDIPGED
+    category
 PXHGCOMP
+    category
 PXCYC
+    category
 PXGRPROF
+    category
 PXGR6COR
+    category
 PXMS123
+    category
 PWCMPWGT
+    integer
 PEIO1ICD
+    category
 PEIO1OCD
+    category
 PEIO2ICD
+    category
 PEIO2OCD
+    category
 PRIMIND1
+    category
 PRIMIND2
+    category
 PEAFWHN1
+    integer
 PEAFWHN2
+    integer
 PEAFWHN3
+    integer
 PEAFWHN4
+    integer
 PXAFEVER
+    category
 PELNDAD
+    category
 PELNMOM
+    category
 PEDADTYP
+    category
 PEMOMTYP
+    category
 PECOHAB
+    category
 PXLNDAD
+    category
 PXLNMOM
+    category
 PXDADTYP
+    category
 PXMOMTYP
+    category
 PXCOHAB
+    category
 PEDISEAR
+    binary
 PEDISEYE
+    binary
 PEDISREM
+    binary
 PEDISPHY
+    binary
 PEDISDRS
+    binary
 PEDISOUT
+    binary
 PRDISFLG
+    binary
 PXDISEAR
+    category
 PXDISEYE
+    category
 PXDISREM
+    category
 PXDISPHY
+    category
 PXDISDRS
+    category
 PXDISOUT
-PES1
+    category

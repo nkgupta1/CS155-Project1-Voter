@@ -51,7 +51,7 @@ def import_train(filename):
     """
     Imports training data and parses it.
     Removes column labels and id column
-    Converts entries to ints
+    Converts entries to floats
     Converts labels to 0 to not vote and 1 to vote
     """
     with open(filename,'r') as dest_f:
@@ -62,7 +62,7 @@ def import_train(filename):
     data_array = np.asarray(data)[1:, 1:]
 
     # convert to 32-bit int
-    data_array = data_array.astype(np.int32)
+    data_array = data_array.astype(np.float32)
      
     # remove last column (label)
     X_train = data_array[:, :-1]
@@ -75,7 +75,7 @@ def import_test(filename):
     """
     Imports test data and parses it
     Removes column labels and id column
-    Converts entries to ints
+    Converts entries to floats
     Return ids separately
     """
     with open(filename,'r') as dest_f:
@@ -93,7 +93,7 @@ def import_test(filename):
 
 
     # convert to 32-bit int
-    X_train = data_array.astype(np.int32)
+    X_train = data_array.astype(np.float32)
 
     return X_train, ids
     
@@ -107,35 +107,35 @@ def save_parsed_data():
     test_2008, id_2008 = import_test('../data/raw/test_2008.csv')
     test_2012, id_2012 = import_test('../data/raw/test_2012.csv')
 
-    joblib.dump(X_train_2008, '../data/X_train_2008.pkl')
-    joblib.dump(Y_train_2008, '../data/Y_train_2008.pkl')
+    joblib.dump(X_train_2008, '../data/X_train_2008.jbl')
+    joblib.dump(Y_train_2008, '../data/Y_train_2008.jbl')
 
-    joblib.dump(test_2008, '../data/X_test_2008.pkl')
-    joblib.dump(id_2008, '../data/id_test_2008.pkl')
+    joblib.dump(test_2008, '../data/X_test_2008.jbl')
+    joblib.dump(id_2008, '../data/id_test_2008.jbl')
 
-    joblib.dump(test_2012, '../data/X_test_2012.pkl')
-    joblib.dump(id_2012, '../data/id_test_2012.pkl')
+    joblib.dump(test_2012, '../data/X_test_2012.jbl')
+    joblib.dump(id_2012, '../data/id_test_2012.jbl')
 
 def train_2008():
     """
     Gets data and labels from the 2008 training set
     Must be run from src
     """
-    return joblib.load('../data/X_train_2008.pkl'), joblib.load('../data/Y_train_2008.pkl')
+    return joblib.load('../data/X_train_2008.jbl'), joblib.load('../data/Y_train_2008.jbl')
 
 def test_2008():
     """
     Gets data from the 2008 test set
     Must be run from src
     """
-    return joblib.load('../data/X_test_2008.pkl'), joblib.load('../data/id_test_2008.pkl')
+    return joblib.load('../data/X_test_2008.jbl'), joblib.load('../data/id_test_2008.jbl')
 
 def test_2012():
     """
     Gets data from the 2012 test set
     Must be run from src
     """
-    return joblib.load('../data/X_test_2012.pkl'), joblib.load('../data/id_test_2012.pkl')
+    return joblib.load('../data/X_test_2012.jbl'), joblib.load('../data/id_test_2012.jbl')
 
 def predictions_to_number(y_labels):
     """
