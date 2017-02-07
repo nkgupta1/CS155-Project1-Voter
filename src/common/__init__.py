@@ -9,3 +9,6 @@ from .common import *
     
 # Random forest
 from .forest import *
+
+# Categorization
+from .categorize import *
