@@ -6,7 +6,7 @@ report.log
 report.out
 report.synctex.gz
 
-# 
+# Binaries
 *.pkl
 *.h5
 *.jl
