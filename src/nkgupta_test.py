@@ -4,7 +4,7 @@ from common import *
 from sklearn import svm
 
 def to_categorical(lst):
-    categories =  np.unique(lst, return_inverse=True)
+    categories =  np.unique(lst, return_inverse=True)[1]
     max_val = np.max(categories) + 1
     to_ret = np.zeros((max_val, len(lst)))
 
