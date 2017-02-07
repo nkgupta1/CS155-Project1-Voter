@@ -2,8 +2,6 @@
 
 This is a project for CS155 Machine Learning and Data Mining at Caltech.
 
-Neural Net:  
+Neural Net (TensorFlow):  
     Currently always converging to the same value regardless of number of units
-
-TODO:
-    Convert some columns to classes as opposed to integers
+    0.7446
