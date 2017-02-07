@@ -663,7 +663,7 @@ PXSCHFT
 PXSCHLVL
     category
 QSTNUM
-    category
+    delete
 OCCURNUM
     category
 PEDIPGED
