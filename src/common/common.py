@@ -155,5 +155,5 @@ def format_results(ids, Y):
         to_ret += ids[i] + ',' + str(Y[i]) + '\n'
     return to_ret
 
-
-
+def analyze_ensemble(clf_name, year=2008):
+    pass
