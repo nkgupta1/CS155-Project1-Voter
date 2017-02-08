@@ -8,7 +8,7 @@ import os
 import numpy as np
 
 try:
-    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, BaggingClassifier, ExtraTreesClassifier, GradientBoostingClassifier
     from sklearn.externals import joblib
 except ImportError:
     raise ImportError('[!] Forest requires Scikit-Learn.')
@@ -25,7 +25,7 @@ class forest():
     Random forests used to analyze voting patterns.
     """
 
-    def __init__(self, folder):
+    def __init__(self, folder, model='rf'):
         """
         Creates a forest object that stores/reads a forest present 
         in the given folder. A forest must be present before other
@@ -34,10 +34,13 @@ class forest():
         Arguments:
             folder: The location of a forest, or a folder in which
                 to place a trained forest.
+            type: Whether a standard RF or an AdaBoostRegressor is used.
+                Accepts 'rf', 'ada', 'bag', 'extra', 'grad'
         """
 
         # Load in folder
         self.load(folder)
+        self.model = model
 
     def load(self, folder):
         """
@@ -112,9 +115,9 @@ class forest():
             predictions = self._run_layer(d, predictions)
 
         # Aggregated predictions
-        final_predictions = mode(predictions)
+        final_predictions_mode = mode(predictions,axis=1)
 
-        return final_predictions
+        return final_predictions_mode
 
     def fit(self, X, Y, depth=5, n_estimators=100):
         """
@@ -129,7 +132,7 @@ class forest():
 
         # Check dimensions of input arrays
         assert X.shape[0] == Y.shape[0]
-        assert len(Y.shape == 0)
+        assert len(Y.shape) == 1
 
 
         # Input valid. Go ahead and destroy any random forest already present
@@ -161,12 +164,8 @@ class forest():
         model = joblib.load(os.path.join(self.folder, 'forest_{0}.dat'.format(depth)))
         
         # Find predictions for each data point
-        new_predicted = []
-        for x in X:
-            predicted = [tree.predict(X) for tree in model.estimators_]
-            # CHECK IF INTS, BOOLS, WHATEVER
-            new_predicted.append(predicted)
-        new_predicted = np.asarray(new_predicted)
+        new_predicted = [tree.predict(X) for tree in model.estimators_]
+        new_predicted = np.transpose(np.asarray(new_predicted))
     
         # print('[+] Layer {0} of random forest has predicted predictions.'.format(depth + 1))
     
@@ -186,16 +185,29 @@ class forest():
         # START HERE
 
         # Fit the first layer
-        model = RandomForestClassifier(n_estimators=n_estimators)
+        if self.model == 'rf':
+            model = RandomForestClassifier(n_estimators=n_estimators)
+        elif self.model == 'ada':
+            model = AdaBoostClassifier(n_estimators=n_estimators)
+        elif self.model == 'bag':
+            model = BaggingClassifier(n_estimators=n_estimators)
+        elif self.model == 'extra':
+            model = BaggingClassifier(n_estimators=n_estimators)
+        elif self.model == 'grad':
+            model = BaggingClassifier(n_estimators=n_estimators)
+        else:
+            print('Don\' make typos.')
+            quit()
+
         model.fit(X, Y)
     
-        # Since we want a binary classification anyway, we can just take these probabilities across
-        # layers. Then, we feed that as input to the next layer
-        predicted = model.predict_proba(X)
+        # Find predictions for each data point
+        new_predicted = [tree.predict(X) for tree in model.estimators_]
+        new_predicted = np.transpose(np.asarray(new_predicted))
     
         # First model trained. Save in compressed format (joblib preferable to pickle)
         joblib.dump(model, os.path.join(self.folder, 'forest_{0}.dat'.format(depth)))
 
         print('[+] Layer {0} of random forest has been trained.'.format(depth + 1))
     
-        return [i[1] for i in predicted]
+        return new_predicted
