@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 
 from common import *
+from sklearn.ensemble import RandomForestClassifier
 import numpy as np
 
 if __name__=='__main__':
-    # Caveat; need classes to be zero-indexed
-    f = forest('saved_models/test_forest')
-    X = np.array([[0,0],[1,0],[0,1],[1,1]])
-    Y = np.array([0,1,1,0])
-    f.fit(X,Y,depth=3,n_estimators=30)
-    fp = f.predict(X)[1].astype(int)
-    print(fp)
-    # X, Y = train_2008_categorized()
-    # print('Length Y = {0}'.format(len(Y)))
-    # print('Num 1 = {0}'.format(sum(Y)))
-    # print('Num 0 = {0}'.format(len(Y)-sum(Y)))
-    # print('Frac 1 = {0}'.format(sum(Y)/len(Y)))
+    X, Y = train_2008_categorized()
+    f = RandomForestClassifier(n_estimators=1000)
+    f.fit(X, Y, n_estimators=500)
+
+    X_test, id_s = test_2008()
+
+    Y_predict = f.predict(X_test)
+
+    res = format_results(id_s, Y_predict)
+    with open('submissions/2008-rf.csv', 'w') as g:     
+        g.write(res)
