@@ -165,6 +165,6 @@ def analyze_ensemble(clf_name, year=2008, categorized=True, prnt=True):
     predictions = np.stack(predictions, axis=1)
     if prnt:
         for row in predictions:
-            print row
+            print(row)
     return predictions
 

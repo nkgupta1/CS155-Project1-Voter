@@ -1,7 +1,6 @@
 import numpy as np
 from sklearn.externals import joblib
-from categorize import *
-
+from common import *
 def save_prediction(name, clf, year, categorized):
     print('saving', name)
     id_test, X_test = normed_cat_test_data(year, categorized)
