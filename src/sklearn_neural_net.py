@@ -3,8 +3,6 @@
 import numpy as np
 import time
 from common import *
-from common.saving import *
-from common.normalization import *
 from sklearn.model_selection import cross_val_score
 from sklearn.externals import joblib
 from sklearn.neural_network import MLPClassifier
@@ -48,5 +46,6 @@ def NNC(layers, tol=0.0001, max_iter=100000, cv=True, early_stopping=False,
 
 NNC((100, 50), tol=.00001, max_iter=5, cv=True, early_stopping=False)
 
-#clf_to_prediction(2008, 'd-MLP-(50, 50)-4-0.888737686919-384')
+#clf_to_prediction('d-MLP-(50, 50)-4-0.888737686919-384', 2008)
 
+#analyze_ensemble('d-MLP-(50, 50)-4-0.888737686919-384', prnt=True)

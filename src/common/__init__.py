@@ -12,3 +12,9 @@ from .forest import *
 
 # Categorization
 from .categorize import *
+
+# Normalization
+from .normalization import *
+
+# Saving
+from .saving import *
