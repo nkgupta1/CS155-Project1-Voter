@@ -26,10 +26,10 @@ def Ensemble_NN_RF(clfs):
 if __name__=='__main__':
     clf_nn = MLPClassifier(hidden_layer_sizes=(100,50), verbose=True, 
         tol=0.00001, max_iter=5, early_stopping=True)
-    clf_rf = RandomForestClassifier(n_estimators=100)
+    # clf_rf = RandomForestClassifier(n_estimators=1000)
 
-    clfs = [clf_nn, clf_nn, clf_nn, clf_nn, clf_nn, clf_nn,
-            clf_rf, clf_rf, clf_rf, clf_rf, clf_rf]
+    # clfs = [clf_nn, clf_nn, clf_nn, clf_nn, clf_nn, clf_nn]
+            # clf_rf, clf_rf, clf_rf, clf_rf, clf_rf]
     save_name = Ensemble_NN_RF(clfs)
 
     clf_to_prediction(save_name, 2008)

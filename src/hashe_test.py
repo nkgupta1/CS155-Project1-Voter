@@ -6,10 +6,10 @@ import numpy as np
 
 if __name__=='__main__':
     X, Y = train_2008_categorized()
-    f = RandomForestClassifier(n_estimators=1000)
-    f.fit(X, Y, n_estimators=500)
+    f = RandomForestClassifier(n_estimators=1000, n_jobs=2)
+    f.fit(X, Y)
 
-    X_test, id_s = test_2008()
+    X_test, id_s = test_2008_categorized()
 
     Y_predict = f.predict(X_test)
 

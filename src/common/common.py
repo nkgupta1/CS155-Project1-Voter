@@ -152,7 +152,7 @@ def format_results(ids, Y):
     Y = predictions_to_number(Y)
     to_ret = 'id,PES1\n'
     for i in range(len(ids)):
-        to_ret += ids[i] + ',' + str(Y[i]) + '\n'
+        to_ret += ids[i] + ',' + str(int(Y[i])) + '\n'
     return to_ret
 
 def analyze_ensemble(clf_name, year=2008, categorized=True, prnt=True):
