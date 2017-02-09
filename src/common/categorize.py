@@ -48,7 +48,7 @@ def categorize_data(data, descriptions, mappings=None, test=False):
     """
 
     # VERY MAGIC NUMBER!!!
-    NUM_NEW_DIM = 4054
+    NUM_NEW_DIM = 3014
 
     # Make sure file has expected number of dimensions
     assert len(descriptions) == len(data[0])
@@ -96,7 +96,7 @@ def categorize_data(data, descriptions, mappings=None, test=False):
             # only added one new dimension to the new array
             count += 1
 
-        else:
+        elif label_type == 'category' or label_type == 'binary':
             # category, binary, binary/refused
             categorized = None
 
@@ -115,6 +115,8 @@ def categorize_data(data, descriptions, mappings=None, test=False):
             for j in range(len(categorized)):
                 data_fixed[count] = categorized[j]
                 count += 1
+        else:
+            print('illegal label:', label_type)
 
 
     # make sure we used the expected number of dimensions in the numpy array

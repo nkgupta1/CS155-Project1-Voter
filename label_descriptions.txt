@@ -3,9 +3,9 @@ HRMONTH
 HRYEAR4
     delete
 HURESPLI
-    category
+    delete
 HUFINAL
-    category
+    delete
 HUSPNISH
     binary
 HETENURE
@@ -13,21 +13,21 @@ HETENURE
 HEHOUSUT
     category
 HETELHHD
-    binary/refused
+    binary
 HETELAVL
-    binary/refused
+    binary
 HEPHONEO
-    binary/refused
+    delete
 HUFAMINC
     integer
 HUTYPEA
-    category
+    delete
 HUTYPB
-    category
+    delete
 HUTYPC
-    category
+    delete
 HWHHWGT
-    integer
+    delete
 HRINTSTA
     category
 HRNUMHOU
@@ -35,25 +35,25 @@ HRNUMHOU
 HRHTYPE
     category
 HRMIS
-    category
+    delete
 HUINTTYP
-    category
+    delete
 HUPRSCNT
     integer
 HRLONGLK
-    category
+    delete
 HRHHID2
-    category
+    delete
 HUBUS
     category
 HUBUSL1
-    category
+    delete
 HUBUSL2
-    category
+    delete
 HUBUSL3
-    category
+    delete
 HUBUSL4
-    category
+    delete
 GEREG
     category
 GESTCEN
@@ -73,19 +73,19 @@ GTINDVPC
 GTCBSASZ
     integer
 GTCSA
-    category
+    delete
 PERRP
     category
 PEPARENT
-    category
+    delete
 PEAGE
-    category
-PRTFAGE
-    category
-PEMARITL (iffy)
     integer
-PESPOUSE
+PRTFAGE
+    delete
+PEMARITL
     category
+PESPOUSE
+    delete
 PESEX
     category
 PEAFEVER
@@ -93,7 +93,7 @@ PEAFEVER
 PEAFNOW
     binary
 PEEDUCA
-    integer
+    category
 PTDTRACE
     category
 PRDTHSP
@@ -101,9 +101,9 @@ PRDTHSP
 PUCHINHH
     category
 PULINENO
-    category
+    delete
 PRFAMNUM
-    category
+    delete
 PRFAMREL
     category
 PRFAMTYP
@@ -125,7 +125,7 @@ PRCITSHP
 PRCITFLG
     category
 PRINUSYR
-    integer
+    category
 PUSLFPRX
     category
 PEMLR
@@ -133,17 +133,17 @@ PEMLR
 PUWK
     category
 PUBUS1
-    binary/refused
+    binary
 PUBUS2OT
     binary
 PUBUSCK1
-    category
+    delete
 PUBUSCK2
-    category
+    delete
 PUBUSCK3
-    category
+    delete
 PUBUSCK4
-    category
+    delete
 PURETOT
     category
 PUDIS
@@ -151,7 +151,7 @@ PUDIS
 PERET1
     category
 PUDIS1
-    binary/refused
+    binary
 PUDIS2
     category
 PUABSOT
@@ -159,9 +159,9 @@ PUABSOT
 PULAY
     category
 PEABSRSN
-    category
+    delete
 PEABSPDO
-    binary
+    delete
 PEMJOT
     binary
 PEMJNUM
@@ -183,11 +183,11 @@ PEHRRSN2
 PEHRRSN3
     category
 PUHROFF1
-    binary/refused
+    binary
 PUHROFF2
     integer
 PUHROT1
-    binary/refused
+    binary
 PUHROT2
     integer
 PEHRACT1
@@ -199,29 +199,29 @@ PEHRACTT
 PEHRAVL
     binary
 PUHRCK1
-    category
+    delete
 PUHRCK2
-    category
+    delete
 PUHRCK3
-    category
+    delete
 PUHRCK4
-    category
+    delete
 PUHRCK5
-    category
+    delete
 PUHRCK6
-    category
+    delete
 PUHRCK7
-    category
+    delete
 PUHRCK12
-    category
+    delete
 PULAYDT
-    binary/refused
+    binary
 PULAY6M
-    binary/refused
+    binary
 PELAYAVL
     binary
 PULAYAVR
-    category
+    delete
 PELAYLK
     binary
 PELAYDUR
@@ -229,53 +229,53 @@ PELAYDUR
 PELAYFTO
     binary
 PULAYCK1
-    category
+    delete
 PULAYCK2
-    category
+    delete
 PULAYCK3
-    category
+    delete
 PULK
     category
 PELKM1
     category
 PULKM2
-    category
+    delete
 PULKM3
-    category
+    delete
 PULKM4
-    category
+    delete
 PULKM5
-    category
+    delete
 PULKM6
-    category
+    delete
 PULKDK1
-    category
+    delete
 PULKDK2
-    category
+    delete
 PULKDK3
-    category
+    delete
 PULKDK4
-    category
+    delete
 PULKDK5
-    category
+    delete
 PULKDK6
-    category
+    delete
 PULKPS1
-    category
+    delete
 PULKPS2
-    category
+    delete
 PULKPS3
-    category
+    delete
 PULKPS4
-    category
+    delete
 PULKPS5
-    category
+    delete
 PULKPS6
-    category
+    delete
 PELKAVL
     binary
 PULKAVR
-    category
+    delete
 PELKLL1O
     category
 PELKLL2O
@@ -301,17 +301,17 @@ PEDWLKWK
 PEDWAVL
     binary
 PEDWAVR
-    category
+    delete
 PUDWCK1
-    category
+    delete
 PUDWCK2
-    category
+    delete
 PUDWCK3
-    category
+    delete
 PUDWCK4
-    category
+    delete
 PUDWCK5
-    category
+    delete
 PEJHWKO
     binary
 PUJHDP1O
@@ -321,9 +321,9 @@ PEJHRSN
 PEJHWANT
     binary
 PUJHCK1
-    category
+    delete
 PUJHCK2
-    category
+    delete
 PRABSREA
     category
 PRCIVLF
@@ -357,17 +357,17 @@ PRWKSTAT
 PRWNTJOB
     binary
 PUJHCK3
-    category
+    delete
 PUJHCK4
-    category
+    delete
 PUJHCK5
-    category
+    delete
 PUIODP1
-    binary/refused
+    binary
 PUIODP2
-    binary/refused
+    binary
 PUIODP3
-    binary/refused
+    binary
 PEIO1COW
     category
 PUIO1MFG
@@ -377,13 +377,13 @@ PEIO2COW
 PUIO2MFG
     category
 PUIOCK1
-    category
+    delete
 PUIOCK2
-    category
+    delete
 PUIOCK3
-    category
+    delete
 PRIOELG
-    category
+    delete
 PRAGNA
     binary
 PRCOW1
@@ -405,7 +405,7 @@ PRDTOCC1
 PRDTOCC2
     category
 PREMP
-    category
+    delete
 PRMJIND1
     category
 PRMJIND2
@@ -417,23 +417,23 @@ PRMJOCC2
 PRMJOCGR
     category
 PRNAGPWS
-    category
+    delete
 PRNAGWS
-    category
+    delete
 PRSJMJ
     binary
 PRERELG
-    category
+    delete
 PEERNUOT
     binary
 PEERNPER
     integer
 PEERNRT
-    binary/refused
+    binary
 PEERNHRY
     binary
 PUERNH1C
-    integer
+    delete
 PEERNH2
     integer
 PEERNH1O
@@ -441,19 +441,19 @@ PEERNH1O
 PRERNHLY
     integer
 PTHR
-    category
+    delete
 PEERNHRO
     integer
 PRERNWA
     integer
 PTWK
-    category
+    delete
 PEERN
     integer
 PUERN2
     integer
 PTOT
-    category
+    delete
 PEERNWKP
     integer
 PEERNLAB
@@ -467,9 +467,9 @@ PENLFRET
 PENLFACT
     category
 PUNLFCK1
-    binary
+    delete
 PUNLFCK2
-    binary
+    delete
 PESCHENR
     binary
 PESCHFT
@@ -489,189 +489,189 @@ PWSSWGT
 PWVETWGT
     integer
 PRCHLD
-    integer
+    category
 PRNMCHLD
     integer
 PRWERNAL
-    category
+    delete
 PRHERNAL
-    category
+    delete
 HXTENURE
-    category
+    delete
 HXHOUSUT
-    category
+    delete
 HXTELHHD
-    category
+    delete
 HXTELAVL
-    category
+    delete
 HXPHONEO
-    category
+    delete
 PXINUSYR
-    category
+    delete
 PXRRP
-    category
+    delete
 PXPARENT
-    category
+    delete
 PXAGE
-    category
+    delete
 PXMARITL
-    category
+    delete
 PXSPOUSE
-    category
+    delete
 PXSEX
-    category
+    delete
 PXAFWHN1
-    category
+    delete
 PXAFNOW
-    category
+    delete
 PXEDUCA
-    category
+    delete
 PXRACE1
-    category
+    delete
 PXNATVTY
-    category
+    delete
 PXMNTVTY
-    category
+    delete
 PXFNTVTY
-    category
+    delete
 PXHSPNON
-    category
+    delete
 PXMLR
-    category
+    delete
 PXRET1
-    category
+    delete
 PXABSRSN
-    category
+    delete
 PXABSPDO
-    category
+    delete
 PXMJOT
-    category
+    delete
 PXMJNUM
-    category
+    delete
 PXHRUSL1
-    category
+    delete
 PXHRUSL2
-    category
+    delete
 PXHRFTPT
-    category
+    delete
 PXHRUSLT
-    category
+    delete
 PXHRWANT
-    category
+    delete
 PXHRRSN1
-    category
+    delete
 PXHRRSN2
-    category
+    delete
 PXHRACT1
-    category
+    delete
 PXHRACT2
-    category
+    delete
 PXHRACTT
-    category
+    delete
 PXHRRSN3
-    category
+    delete
 PXHRAVL
-    category
+    delete
 PXLAYAVL
-    category
+    delete
 PXLAYLK
-    category
+    delete
 PXLAYDUR
-    category
+    delete
 PXLAYFTO
-    category
+    delete
 PXLKM1
-    category
+    delete
 PXLKAVL
-    category
+    delete
 PXLKLL1O
-    category
+    delete
 PXLKLL2O
-    category
+    delete
 PXLKLWO
-    category
+    delete
 PXLKDUR
-    category
+    delete
 PXLKFTO
-    category
+    delete
 PXDWWNTO
-    category
+    delete
 PXDWRSN
-    category
+    delete
 PXDWLKO
-    category
+    delete
 PXDWWK
-    category
+    delete
 PXDW4WK
-    category
+    delete
 PXDWLKWK
-    category
+    delete
 PXDWAVL
-    category
+    delete
 PXDWAVR
-    category
+    delete
 PXJHWKO
-    category
+    delete
 PXJHRSN
-    category
+    delete
 PXJHWANT
-    category
+    delete
 PXIO1COW
-    category
+    delete
 PXIO1ICD
-    category
+    delete
 PXIO1OCD
-    category
+    delete
 PXIO2COW
-    category
+    delete
 PXIO2ICD
-    category
+    delete
 PXIO2OCD
-    category
+    delete
 PXERNUOT
-    category
+    delete
 PXERNPER
-    category
+    delete
 PXERNH1O
-    category
+    delete
 PXERNHRO
-    category
+    delete
 PXERN
-    category
+    delete
 PXERNWKP
-    category
+    delete
 PXERNRT
-    category
+    delete
 PXERNHRY
-    category
+    delete
 PXERNH2
-    category
+    delete
 PXERNLAB
-    category
+    delete
 PXERNCOV
-    category
+    delete
 PXNLFJH
-    category
+    delete
 PXNLFRET
-    category
+    delete
 PXNLFACT
-    category
+    delete
 PXSCHENR
-    category
+    delete
 PXSCHFT
-    category
+    delete
 PXSCHLVL
-    category
+    delete
 QSTNUM
     delete
 OCCURNUM
-    category
+    delete
 PEDIPGED
     binary
 PEHGCOMP
-    integer
+    category
 PECYC
-    integer
+    category
 PEGRPROF
     binary
 PEGR6COR
@@ -679,17 +679,17 @@ PEGR6COR
 PEMS123
     integer
 PXDIPGED
-    category
+    delete
 PXHGCOMP
-    category
+    delete
 PXCYC
-    category
+    delete
 PXGRPROF
-    category
+    delete
 PXGR6COR
-    category
+    delete
 PXMS123
-    category
+    delete
 PWCMPWGT
     integer
 PEIO1ICD
@@ -705,35 +705,35 @@ PRIMIND1
 PRIMIND2
     category
 PEAFWHN1
-    integer
+    category
 PEAFWHN2
-    integer
+    category
 PEAFWHN3
-    integer
+    category
 PEAFWHN4
-    integer
+    category
 PXAFEVER
-    category
+    delete
 PELNDAD
-    category
+    delete
 PELNMOM
-    category
+    delete
 PEDADTYP
     category
 PEMOMTYP
     category
 PECOHAB
-    category
+    delete
 PXLNDAD
-    category
+    delete
 PXLNMOM
-    category
+    delete
 PXDADTYP
-    category
+    delete
 PXMOMTYP
-    category
+    delete
 PXCOHAB
-    category
+    delete
 PEDISEAR
     binary
 PEDISEYE
@@ -749,14 +749,14 @@ PEDISOUT
 PRDISFLG
     binary
 PXDISEAR
-    category
+    delete
 PXDISEYE
-    category
+    delete
 PXDISREM
-    category
+    delete
 PXDISPHY
-    category
+    delete
 PXDISDRS
-    category
+    delete
 PXDISOUT
-    category
+    delete

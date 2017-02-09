@@ -1,8 +1,18 @@
 #!/usr/bin/env python3
 
-from common import import_train
+from common import *
+from sklearn.ensemble import RandomForestClassifier
+import numpy as np
 
 if __name__=='__main__':
-    X, Y = import_train("../data/train_2008.csv")
-    print(X.shape)
-    print(Y.shape)
+    X, Y = train_2008_categorized()
+    f = RandomForestClassifier(n_estimators=1000, n_jobs=2)
+    f.fit(X, Y)
+
+    X_test, id_s = test_2008_categorized()
+
+    Y_predict = f.predict(X_test)
+
+    res = format_results(id_s, Y_predict)
+    with open('submissions/2008-rf.csv', 'w') as g:     
+        g.write(res)
