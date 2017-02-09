@@ -12,18 +12,19 @@ svc-default-vect.jl
     predicts most things as 1s
 
 
-veb:
+veb-uncategorized:
 formating of saved models:
     a-type-in_accuracy-fraction_data_used-time_seconds
     b-type-iterations-C_penalty-in_accuracy-fraction_data_used-time_seconds
     c-type-tolerance-alpha_penalty-in_accuracy-time_seconds
-    d-type-layers-stopping_tolerance-accuracy-time_seconds
+    d-type-layers-stopping_tolerance/max_iterations-accuracy-time_seconds
 
 saved:
     a-SVM_3poly-0.757202282462-0.1-117
     a-SVM_10poly-0.747490992314-0.1-164
     a-SVM_15poly-0.745171416642-0.1-172
     a-SVM_linear-0.699831444168-0.01-6
+    a-SVM_linear-0.762351740455-0.1-124
     a-SVM_linear-0.762351740455-0.1-124
     a-SVM_rbf-0.75707857176-0.1-230
     a-SVM_rbf-0.769155829094-0.2-276
@@ -44,14 +45,19 @@ saved:
     c-RIDGE-1e-05-10000.0-0.772727975629-0
     c-RIDGE-1e-05-1000000.0-0.744568326967-0
     d-MLP-(5, 2)-0.0001-0.783398023722-13
+    d-MLP-(100, 50, 10)-0.02-0.790294895387-6
     d-MLP-(100,)-0.0001-0.879876907851-153
     d-MLP-(500, 100)-0.0001-0.97706712852-539
     d-MLP-(500,)-0.0001-0.979587734084-522
+    d-MLP-(1000,)-0.0001-0.969520775666-976
+    d-MLP-100-0.01-0.791810351493-5
+    d-MLP-100-0.02-0.794887655218-5
 
 
-unsaved/cross-validation (no save b/c no return of classifier in cross validation):
+unsaved/cross-validation:
     SVM_linear, cv=5, frac=0.033, 0.7384 accuracy, 17 seconds
     SVM_linear, cv=5, frac=0.1, 0.7601 accuracy, 164 seconds
+    SVM_4poly, cv=5, all, 0.7568 accuracy, 16164 seconds
     SVM_rbf, cv=5, all, 0.76797 accuracy, 8460 seconds
     LogisticRegression, sag, cv=5, 25iter, converged, 1e-5C, all, 0.774 accuracy
     LogisticRegression, sag, cv=5, 25iter, no convergence, 1C, all, 0.773 accuracy
@@ -79,4 +85,47 @@ unsaved/cross-validation (no save b/c no return of classifier in cross validatio
     MLP, layers (1000), tol=.02, cv=3, all, 0.77 accuracy
     MLP, layers (1000), tol=.005, cv=3, all, 0.73 accuracy
 
+    MLP, layers (100), iter=3, cv=5, all, 0.7726 accuracy    
+    MLP, layers (100), iter=5, cv=5, all, 0.7726 accuracy    
+    MLP, layers (100), iter=7, cv=5, all, 0.7723 accuracy    
+    MLP, layers (100), iter=10, cv=5, all, 0.7705 accuracy    
 
+    MLP, layers (100, 50, 10), iter=3, cv=5, all, 0.7699 accuracy
+    MLP, layers (100, 50, 10), iter=4, cv=5, all, 0.7725 accuracy
+    MLP, layers (100, 50, 10), iter=5, cv=5, all, 0.7718 accuracy
+    MLP, layers (100, 50, 10), iter=6, cv=5, all, 0.7720 accuracy
+    MLP, layers (100, 50, 10), iter=7, cv=5, all, 0.7716 accuracy
+    MLP, layers (100, 50, 10), iter=10, cv=5, all, 0.767 accuracy
+    MLP, layers (100, 50, 10), iter=15, cv=5, all, 0.758 accuracy
+
+    MLP, layers (200, 100), iter=4, cv=5, all, 0.7698 accuracy    
+    MLP, layers (200, 100), iter=5, cv=5, all, 0.7711 accuracy    
+    MLP, layers (200, 100), iter=10, cv=5, all, 0.7633 accuracy    
+
+    MLP, layers (20), iter=5, cv=5, all, 0.7710 accuracy    
+    MLP, layers (20), iter=10, cv=5, all, 0.7734 accuracy    
+    MLP, layers (20), iter=15, cv=5, all, 0.7723 accuracy    
+
+    MLP, layers (20, 20), iter=15, cv=5, all, 0.7733 accuracy    
+
+    MLP, layers (20, 20, 20), iter=10, cv=5, all, 0.7730 accuracy    
+
+    MLP, layers (50, 30), iter=5, cv=5, all, 0.7717 accuracy    
+
+
+veb-categorized:
+saved:
+
+unsaved:
+    SVM_rbf, cv=5, all, 0.7707 accuracy, 82156 seconds
+    LogisticRegression, liblinear, cv=5, 50iter, 1C, all, 0.7725 accuracy, 8545 seconds
+	LogisticRegression, liblinear, cv=5, 100iter, 1C, all, 0.7725 accuracy, 8527 seconds
+    SGD_hinge, cv=5, 1000iter, a=.001, all, 0.7748 accuracy, 2000 seconds
+    SGD_hinge, cv=5, 500iter, a=.001, all, 0.7737 accuracy, 2000 seconds
+    SGD_hinge, cv=5, 100iter, a=.001, all, 0.7727 accuracy, 2000 seconds
+    MLP, layers (200), iter=5, cv=5, all, 0.738 accuracy    
+    MLP, layers (100, 50), iter=5, cv=5, all, 0.776 accuracy    
+    MLP, layers (50, 50), iter=4, cv=5, all, 0.780 accuracy    
+    MLP, layers (100), iter=4, cv=5, all, ? accuracy    
+    MLP, layers (50, 20, 10), iter=5, cv=5, all, ? accuracy    
+    MLP, layers (100, 50, 10), iter=6, cv=5, all, ? accuracy

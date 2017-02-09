@@ -10,7 +10,7 @@ from sklearn.ensemble import VotingClassifier
 from copy import deepcopy as copy
 
 
-X_train, Y_train = normalized_categorized_data()
+X_train, Y_train = train_2008_categorized()
 
 
 def NNC(layers, tol=0.0001, max_iter=100000, cv=True, early_stopping=False, 
@@ -32,20 +32,21 @@ def NNC(layers, tol=0.0001, max_iter=100000, cv=True, early_stopping=False,
         print('cross-validation accuracy:', score)
     else:
         clf = VotingClassifier([('first', clf), ('second', clf), 
-            ('third', clf), ('fourth', clf), ('fifth', clf)], 
-            voting='soft', n_jobs=1)
+            ('third', clf), ('fourth', clf), ('fifth', clf), 
+            ('sixth', clf), ('seventh', clf), ('eigth', clf), 
+            ('ninth', clf), ('tenth', clf)], voting='soft', n_jobs=1)
         clf.fit(X_train, Y_train)
         score = clf.score(X_train, Y_train)
         #print np.mean(clf.predict(X_train))
         print('score:', score)
-        save_name = 'd-MLP-' + str(layers) + '-' + str(max_iter)
+        save_name = 'd-MLP_10ensemble-' + str(layers) + '-' + str(max_iter)
         save_name += '-' + str(score) + '-' + str(int(time.time() - start))
         joblib.dump(clf, 'saved_models/' + save_name)
     print('finished in', (time.time() - start), 'seconds')
 
 
-NNC((100, 50), tol=.00001, max_iter=5, cv=True, early_stopping=False)
+NNC((150, 50, 10), tol=.00001, max_iter=9, cv=True, early_stopping=False)
 
-#clf_to_prediction('d-MLP-(50, 50)-4-0.888737686919-384', 2008)
+#clf_to_prediction('d-MLP_10ensemble-(100, 50, 10)-8-0.807676249091-1108', 2008)
 
-#analyze_ensemble('d-MLP-(50, 50)-4-0.888737686919-384', prnt=True)
+#analyze_ensemble('d-MLP_10ensemble-(100, 50, 10)-8-0.807676249091-1108')
