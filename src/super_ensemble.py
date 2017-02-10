@@ -11,11 +11,11 @@ def Ensemble_NN_RF(clfs):
     X_train, Y_train = train_2008_categorized()
     start = time.time()
     clf = VotingClassifier([(str(i), clfs[i]) for i in range(len(clfs))], 
-            voting='soft', n_jobs=2)
+            voting='soft')
     clf.fit(X_train, Y_train)
     score = clf.score(X_train, Y_train)
     print('score:', score)
-    save_name = 'e-Ensemble-' + str(score) + '-' + str(int(time.time() - start))
+    save_name = 'e-Ensemble51-' + str(score) + '-' + str(int(time.time() - start))
     joblib.dump(clf, 'saved_models/' + save_name)
     print('finished in', (time.time() - start), 'seconds')
 
@@ -24,10 +24,11 @@ def Ensemble_NN_RF(clfs):
 
 
 if __name__=='__main__':
-    clf_nn = MLPClassifier(hidden_layer_sizes=(100,50), verbose=True, 
-        tol=0.00001, max_iter=5, early_stopping=True)
+    clf_nn = MLPClassifier(hidden_layer_sizes=(100,50,10), verbose=True, 
+        tol=0.00001, max_iter=15, early_stopping=True)
     # clf_rf = RandomForestClassifier(n_estimators=1000)
 
+    clfs = [clf_nn for i in range(51)]
     # clfs = [clf_nn, clf_nn, clf_nn, clf_nn, clf_nn, clf_nn]
             # clf_rf, clf_rf, clf_rf, clf_rf, clf_rf]
     save_name = Ensemble_NN_RF(clfs)
