@@ -27,6 +27,7 @@ def normalized_categorized_data():
     # X_train = (X_train - mean) / std
     return X_train, Y_train
 
+
 def normed_cat_test_data(year, categorized):
     if categorized:
         X_train, Y_train = train_2008_categorized()
@@ -46,3 +47,4 @@ def normed_cat_test_data(year, categorized):
             X_test, id_test = test_2012()
     # X_test = (X_test - mean) / std
     return id_test, X_test
+

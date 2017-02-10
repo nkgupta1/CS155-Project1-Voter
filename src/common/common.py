@@ -155,16 +155,4 @@ def format_results(ids, Y):
         to_ret += ids[i] + ',' + str(int(Y[i])) + '\n'
     return to_ret
 
-def analyze_ensemble(clf_name, year=2008, categorized=True, prnt=True):
-    from normalization import normed_cat_test_data
-    id_test, X_test = normed_cat_test_data(year, categorized)
-    eclf = joblib.load('saved_models/' + clf_name)
-    predictions = []
-    for clf in eclf.estimators_:
-        predictions.append(clf.predict(X_test))
-    predictions = np.stack(predictions, axis=1)
-    if prnt:
-        for row in predictions:
-            print(row)
-    return predictions
 
