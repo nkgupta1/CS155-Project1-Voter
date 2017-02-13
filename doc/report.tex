@@ -112,7 +112,41 @@
     % \caption{Insert caption here.}
     % \end{figure}
 
-    \end{itemize}
+In order to find the ideal parameters, such as regularization strength, iterations, and loss functions, we measured cross validation error and training error as we varied parameters. By analyzing the results, we were able to notice over-fitting and under-fitting by how training and validation errors changed relative to each other. For some of these linear models, which ran faster computationally, we were able to collect enough data points of errors values at various parameter values to generate plots and visually inspect the under and over fitting. These models included lasso regression, ridge regression, and stochastic gradient descent, in which we measured the effect of regularization and early stopping, as shown below.\\
+
+Our aim in using ridge and lasso regression was to automatically ``eliminate" input labels that did not significantly affect the result, by setting their weights to zero. Given the large number of data labels (\# in categorized and \# in uncategorized), we believed that by eliminating inputs that did significantly affect the output would reduce the variance and make it easier for the model to select for distinct patterns in the data.\\
+
+In lasso regression below, we measured the in-sample (training) error vs. the 5-fold cross validation error from alpha regularization 0.01 to 0.1 and then closed in on the errors from 0.001 to 0.01. As shown in the plots, the validation error was consistently above the training error, with both increasing regularly as the regularization term alpha was increased. This showed that the l1 norm lasso regularization only served and was too powerful. 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{lasso-vs-alpha2}
+\includegraphics[scale=0.3]{lasso-vs-alpha}
+\caption{Insert caption here.}
+\end{figure}
+In ridge regression, we found a regularization alpha that best minimized the validation at around alpha 20. 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{ridge-vs-alpha}
+\includegraphics[scale=0.25]{ridge-vs-alpha3}
+\includegraphics[scale=0.25]{ridge-vs-alpha2}
+\caption{Insert caption here.}
+\end{figure}
+We did stochastic gradient descent.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{sgd-vs-alpha}
+\includegraphics[scale=0.3]{sgd-vs-alpha2}
+\caption{Insert caption here.}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{sgd-vs-epoch2}
+\includegraphics[scale=0.25]{sgd-vs-epoch3}
+\includegraphics[scale=0.25]{sgd-vs-epoch4}
+\caption{Insert caption here.}
+\end{figure}
+
+\end{itemize}
 
 \end{itemize}
 
@@ -123,10 +157,10 @@
 \begin{itemize}
 
     \item \boldline{Scoring} \\
-    Due to the binary output classification, we chose to do scoring by classification accuracy (as opposed to loss measure). 
+    Due to the binary output classification, we chose to do scoring by classification accuracy (as opposed to loss measure). As shown in the cross validation results in Table 1, amongst the linear classifiers, Logistic Regression performed best on the pre-processed categorized data, although all had very similar results, except SVM, which performed significantly worse. Additionally, the neural network (MLP Classifier), even after efforts to optimize its parameters, could not perform near the level of the linear regressors. After the de-categorization of the data into around 5000 labels, many of the linear regressors performed worse, whereas the SVM and the stochastic gradient descent that performed worse before, performed better. However, the conversion of the data into labels with real-valued meaning significantly benefited the training of the neural networks, which we surmise is due to the fact that the categorical labels posses greater correlation to the output when considered together, which are the types of patterns that the neural network naturally performs better with.
 
     \item \boldline{Validation and Test} \\
-    We used cross-5 validation for all model selection and choosing semi-finalists of the neural-network models, except for choosing the finalists in the neural network models, where we used cross-10 validation.  By generating these cross validations, we were able to select the optimal learning parameters, such as regularization terms, early stopping (max iterations), and loss functions. This was done by manually fixing all parameters except for one, optimizing that parameter, then moving on to optimizing another parameter, before circling back to the same parameter. In a way, we performed a manual step-wise gradient-like descent on parameters. The results of cross validation for various models can be seen in Table \# in the Appendix. The parameters variables refer to the API SKlearn's definition of parameters.
+    We used 5-fold cross validation for all model selection and choosing semi-finalists of the neural-network models, except for choosing the finalists in the neural network models, where we used cross-10 validation.  By generating these cross validations, we were able to select the optimal learning parameters, such as regularization terms, early stopping (max iterations), and loss functions. This was done by manually fixing all parameters except for one, optimizing that parameter, then moving on to optimizing another parameter, before circling back to the same parameter. In a way, we performed a manual step-wise gradient-like descent on parameters. The results of cross validation for various models can be seen in Table 1 in the Appendix. The parameter variables refer to the API SKlearn's definition of parameters.
     % Insert text here.
 
 \end{itemize}
@@ -165,7 +199,7 @@
 \caption{With data normalization, without de-categorization of data (does not include all tests)}\\\hline
 Type & K-Folds & Parameters & Classification Accuracy \\\hline
 SVM & 5 & 4-degree polynomial kernel & 0.7568 \\\hline
-SVM & 5 & RBF kernel & 0.7568 \\\hline
+SVM & 5 & RBF kernel & 0.76797 \\\hline
 Logistic Regression & 5 & \makecell*{SAG solver, 25 iterations (converged),\\ $10^{-5}$ regularization strength} & 0.774 \\\hline
 Logistic Regression & 5 & \makecell*{SAG solver, 25 iterations (no \\convergence), $C=10^{0}$ regularization strength} & 0.773 \\\hline
 Logistic Regression & 5 & \makecell*{SAG solver, 100 iterations (no \\convergence), $C=10^{0}$ regularization strength} & 0.773 \\\hline
@@ -189,7 +223,7 @@ Logistic Regression & 5 & \makecell*{Liblinear solver, 100 iterations (converged
 SGD & 5 & \makecell*{Hinge loss, 1000 iterations,\\ $\alpha=0.001$ regularization strength} & 0.7748 \\\hline
 SGD & 5 & \makecell*{Hinge loss, 500 iterations,\\ $\alpha=0.001$ regularization strength} & 0.7737 \\\hline
 SGD & 5 & \makecell*{Hinge loss, 100 iterations,\\ $\alpha=0.001$ regularization strength} & 0.7727 \\\hline
-\caption{Finalists from 43 cross validations of various layer dimensions and iterations (bounded cross validation by iterations on both sides, such that an increase or decrease in iterations increased validation significantly):}\\\hline
+\caption{Finalists from 43 cross validations of various layer dimensions and iterations (bounded cross validation by iterations on both sides, such that an increase or decrease in iterations increased validation error significantly):}\\\hline
 MLP$^{*}$ Classifier & 10 & \makecell*{Hidden layers=(50, 50), iterations=4 \\ (optimal iterations found by plotting CV vs. iter.)} & 0.7775 \\\hline
 MLP$^{*}$ Classifier & 10 & \makecell*{Hidden layers=(100, 50, 10), iterations=9 \\ (optimal iterations found by plotting CV vs. iter.)} & 0.7782 \\\hline
 MLP$^{*}$ Classifier & 10 & \makecell*{Hidden layers=(150, 50), iterations=5 \\ (optimal iterations found by plotting CV vs. iter.)} & 0.7776 \\\hline
