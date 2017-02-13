@@ -122,31 +122,32 @@ Our aim in using ridge and lasso regression was to automatically ``eliminate" in
 In lasso regression below, we measured the in-sample (training) error vs. the 5-fold cross validation error from alpha regularization 0.01 to 0.1 and then closed in on the errors from 0.001 to 0.01. As shown in the plots, the validation error was consistently above the training error, with both increasing regularly as the regularization term alpha was increased. This showed that the l1 norm lasso regularization only served and was too powerful. 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.3]{lasso-vs-alpha2}
-\includegraphics[scale=0.3]{lasso-vs-alpha}
-\caption{Insert caption here.}
+\includegraphics[scale=0.35]{lasso-vs-alpha2}
+\includegraphics[scale=0.35]{lasso-vs-alpha}
+\caption{Lasso Regression vs. Alpha. The effect of the regularization term alpha appears to negatively effect both in-sample and validation error, demonstrating underfitting.}
 \end{figure}
-In ridge regression, we found a regularization alpha that best minimized the validation at around alpha 20. 
+In ridge regression, we found a regularization alpha that best minimized the validation at around alpha 20. This alpha appeared to reduce some level of overfitting because from alpha 0 to 20, in-sample error increased  while validation error decreased, although slightly.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.25]{ridge-vs-alpha}
 \includegraphics[scale=0.25]{ridge-vs-alpha3}
 \includegraphics[scale=0.25]{ridge-vs-alpha2}
-\caption{Insert caption here.}
+\caption{Ridge Regression vs. Alpha. The effect of the regularization appears to benefit the model when it is at a small value of $\alpha=20$.}
 \end{figure}
-We did stochastic gradient descent.
+In stochastic gradient descent, regularization proved to benefit the model as well, as shown in the plots below.
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.3]{sgd-vs-alpha}
-\includegraphics[scale=0.3]{sgd-vs-alpha2}
-\caption{Insert caption here.}
+\includegraphics[scale=0.35]{sgd-vs-alpha}
+\includegraphics[scale=0.35]{sgd-vs-alpha2}
+\caption{SGD vs. Alpha. Regularization appeared to reduce overfitting until alpha was 0.0005.}
 \end{figure}
+Finally, in SGD, we measured the effect of the number of epochs. By manually capping the number of epochs, we aimed to implement early-stopping and prevent over fitting. We did not find statistically conclusive evidence for overfitting, since the errors ranged within 0.005 as the number of epochs changed. However, we can see under-fitting under 500 iterations as both training and validation error fell as the number of iterations was increased. Although not conclusive due to dip in in-sample error too, the validation error dipped at 2500 epochs, suggesting a benefit to early stopping.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.25]{sgd-vs-epoch2}
 \includegraphics[scale=0.25]{sgd-vs-epoch3}
 \includegraphics[scale=0.25]{sgd-vs-epoch4}
-\caption{Insert caption here.}
+\caption{SGD vs. Epoch. We were able to determine that at least 500 iterations were needed to significantly fit the data without increasing validation error.}
 \end{figure}
 
 \end{itemize}
