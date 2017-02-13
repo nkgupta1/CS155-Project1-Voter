@@ -44,10 +44,11 @@
     \href{https://github.com/nkgupta1/CS155-Project1-Voter}{https://github.com/nkgupta1/CS155-Project1-Voter}
     
     \item \boldline{Division of labour} \\
+    Vaibhav Anand: linear models, cross validation, report \\
+    Nikhil Gupta: neural networks, data processing, report \\
+    Michael Hashe: random forests, mixed ensembles, report
 
 \end{itemize}
-
-
 
 \section{Overview}
 \medskip
@@ -61,7 +62,7 @@
 
     \item \textbf{Mixed Ensembles:} We considered ensembles of neural networks and random forests, and in particular created ensembles of our best-performing individual models. In particular, we tried ensembles of neural networks and random forests. We observed classification scores slightly above 0.78.
 
-    \item \textbf{Linear Models:}
+    \item \textbf{Linear Models:} We experimented with various linear models including support vector machines (SVM), stochastic gradient descent (SGD), linear regression, logistic regression, ridge regression, and lasso regression. These models performed very similar to one another, achieving classification accuracy rates around 0.770-0.775, with logistic regression performing better on data before pre-processing and SGD performing better afterwards. The linear models, however, underperformed the neural networks, and so they were abandoned in the final ensembles and submissions.
 
     \end{itemize}
 
@@ -81,8 +82,6 @@
     \end{itemize}
 
 \end{itemize}
-
-
 
 \section{Approach}
 \medskip
@@ -151,12 +150,10 @@ Finally, in SGD, we measured the effect of the number of epochs. By manually cap
 \includegraphics[scale=0.25]{sgd-vs-epoch4}
 \caption{SGD vs. Epoch. We were able to determine that at least 500 iterations were needed to significantly fit the data without increasing validation error.}
 \end{figure}
-With other linear models, such as linear regression and SVM, there were less parameters to adjust and the computation took longer. However, similar analysis was done by measuring the difference in cross validations with different parameters, as seen in Table 1.
+With other linear models, such as linear regression and SVM, there were less parameters to adjust and the computation took longer. However, similar analysis was done by measuring the differences in cross validations with different parameters, as seen in Table 1 (see Appendix).
 \end{itemize}
 
 \end{itemize}
-
-
 
 \section{Model Selection}
 \medskip
@@ -169,8 +166,6 @@ With other linear models, such as linear regression and SVM, there were less par
     We used 5-fold cross-validation for all model selection and choosing semi-finalists of the neural-network models, except for choosing the finalists in the neural network models, where we used 10-fold cross-validation.  By generating these cross validations, we were able to select the optimal learning parameters, such as regularization terms, early stopping (max iterations), and loss functions. This was done by manually fixing all parameters except for one, optimizing that parameter, then moving on to optimizing another parameter, before circling back to the same parameter. In a way, we performed a manual step-wise gradient-like descent on parameters. The results of cross validation for various models can be seen in Table \# in the Appendix. The parameters variables refer to the API SKlearn's definition of parameters.
 
 \end{itemize}
-
-
 
 \section{Conclusion}
 \medskip
