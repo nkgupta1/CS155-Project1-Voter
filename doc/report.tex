@@ -71,7 +71,7 @@
     \item \textbf{January 31:} Initial commits, uploading data. At this point, we were examining the dataset and brainstorming ideas for models/how to approach the problem.
     \item \textbf{February 3:} Updating file system, experimental tests, writing common data importation functions. We spent that Friday creating a common infrastructure of code that we could easily adapt to models later on in the process.
     \item \textbf{February 4:} Experimentation with SVM model, continued changes to file organization system.
-    \item \textbf{February 5:} Experimentation with other linear models.
+    \item \textbf{February 5:} Experimentation with other linear models, including SGD, logistic, ridge, linear, and lasso regression.
     \item \textbf{February 6:} Categorization of data. Instead of importing data as generic integers, wrote a script that would import data as the appropriate data type type (integer, category, ignore, etc.)
     \item \textbf{February 7:} Neural Networks. Simple neural network models.
     \item \textbf{February 8:} Random Forests. Experimentation with random forest classifiers, mixed ensembles of forests and networks.
@@ -125,7 +125,7 @@
     % \caption{Insert caption here.}
     % \end{figure}
 
-In order to find the ideal parameters, such as regularization strength, iterations, and loss functions, we measured cross validation error and training error as we varied parameters. By analyzing the results, we were able to notice over-fitting and under-fitting by how training and validation errors changed relative to each other. For some of these linear models, which ran faster computationally, we were able to collect enough data points of errors values at various parameter values to generate plots and visually inspect the under and over fitting. These models included lasso regression, ridge regression, and stochastic gradient descent, in which we measured the effect of regularization and early stopping, as shown below.\\
+In order to find the ideal parameters, such as regularization strength, iterations, and loss functions, we measured cross validation error and training error as we varied the parameters. By analyzing the results, we were able to infer over-fitting and under-fitting by how training and validation errors changed relative to each other. For some of these linear models, which ran faster computationally, we were able to collect enough data points of errors values at various parameter values to generate plots and visually inspect the under and over fitting. These models included lasso regression, ridge regression, and stochastic gradient descent, in which we measured the effect of regularization and early stopping, as shown below.\\
 
 Our aim in using ridge and lasso regression was to automatically ``eliminate" input labels that did not significantly affect the result, by setting their weights to zero. Given the large number of data labels (\# in categorized and \# in uncategorized), we believed that by eliminating inputs that did significantly affect the output would reduce the variance and make it easier for the model to select for distinct patterns in the data.\\
 
@@ -159,7 +159,7 @@ Finally, in SGD, we measured the effect of the number of epochs. By manually cap
 \includegraphics[scale=0.25]{sgd-vs-epoch4}
 \caption{SGD vs. Epoch. We were able to determine that at least 500 iterations were needed to significantly fit the data without increasing validation error.}
 \end{figure}
-
+With other linear models, such as linear regression and SVM, there were less parameters to adjust and the computation took longer. However, similar analysis was done by measuring the difference in cross validations with different parameters, as seen in Table 1.
 \end{itemize}
 
 \end{itemize}
@@ -204,7 +204,7 @@ Finally, in SGD, we measured the effect of the number of epochs. By manually cap
 
 \section{Appendix}
 
-\def\arraystretch{1.2}%Line spacing in table, 1 is default
+\def\arraystretch{1.1}%Line spacing in table, 1 is default
 \begin{longtable}{c|c|c|c}
 \caption{With data normalization, without de-categorization of data (does not include all tests)}\\\hline
 Type & K-Folds & Parameters & Classification Accuracy \\\hline
