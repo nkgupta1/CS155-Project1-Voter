@@ -55,21 +55,29 @@
 
     \item \boldline{Models and techniques tried}
     \begin{itemize}
-    % Insert text here. Bullet points can be made using '\item'. Models and techniques should be bolded using '\textbf{}'.
-    \item \textbf{Neural Network:} 
+    \item \textbf{Neural Network:} We first used TensorFlow's implementation of a neural network but after being unsuccessful with that, we switched over to sklearn's implementation. Using 5-fold cross-validation, we settled on parameters to use and then we trained an ensemble of them to counteract the variation between different runs.
 
-    \item \textbf{Random Forest:} We experimented with various types of random forest-based classifiers. In addition to the standard random forest model contained in sklearn, we examined boosted trees, as well as a feed-forward stack of random forest classifiers. We observed classification accuracies in the range of 0.77-0.78, depending on the validation set and stack depth.\\
+    \item \textbf{Random Forest:} We experimented with various types of random forest-based classifiers. In addition to the standard random forest model contained in sklearn, we examined boosted trees, as well as a feed-forward stack of random forest classifiers. We observed classification accuracies in the range of 0.77-0.78, depending on the validation set and stack depth.
+
+    \item \textbf{Mixed Ensembles:} We considered ensembles of neural networks and random forests, and in particular created ensembles of our best-performing individual models. In particular, we tried ensembles of neural networks and random forests. We observed classification scores slightly above 0.78.
 
     \item \textbf{Linear Models:}
-
-    \item \textbf{Mixed Ensembles:} We considered ensembles of neural networks and random forests, and in particular created ensembles of our best-performing individual models. In particular, we tried ensembles of neural networks and random forests. We observed classification scores slightly above 0.78.\\
 
     \end{itemize}
 
     \item \boldline{Work timeline}
     \begin{itemize}
     % Insert text here. Bullet points can be made using '\item'.
-    \item \textbf{Week 1:}
+    \item \textbf{January 31:} Initial commits, uploading data. At this point, we were examining the dataset and brainstorming ideas for models/how to approach the problem.
+    \item \textbf{February 3:} Updating file system, experimental tests, writing common data importation functions. We spent that Friday creating a common infrastructure of code that we could easily adapt to models later on in the process.
+    \item \textbf{February 4:} Experimentation with SVM model, continued changes to file organization system.
+    \item \textbf{February 5:} Experimentation with other linear models.
+    \item \textbf{February 6:} Categorization of data. Instead of importing data as generic integers, wrote a script that would import data as the appropriate data type type (integer, category, ignore, etc.)
+    \item \textbf{February 7:} Neural Networks. Simple neural network models.
+    \item \textbf{February 8:} Random Forests. Experimentation with random forest classifiers, mixed ensembles of forests and networks.
+    \item \textbf{February 9:} Finalized neural networks, categories. Updates to categories (removed many unnecessary or unhelpful categories), picked out most successful networks. Submitted models to competition.
+    \item \textbf{February 12:} Report.
+
     \end{itemize}
 
 \end{itemize}
@@ -98,15 +106,17 @@
     \item \boldline{Details of models and techniques}
     \begin{itemize}
     % Insert text here. Bullet points can be made using '\item'.
-    \item \textbf{Neural Network:}
+    \item \textbf{Neural Network:} In working with neural networks, we first used Keras with a TenserFlow backend. However, we ran into significant issues with this. In particular, no matter what parameters we chose (network dimension, initial weights, activation functions, dropout rate), the network always converged to predicting the same thing, all 1s. We could not figure out a way around this so we switched libraries to sklearn's implementation of a neural network. \\
+
+    In using 5-fold cross-validation, we found that smaller networks worked better, likely because they had better generalization. We settled on networks of dimensions similar to \texttt{(100,50)} for the models we used. We also trained these using the early stopping parameter in sklearn's library. However, we found that there was significant variation between different runs of the same network. In order to counter this, we trained an ensemble of networks, with the same parameters.
 
     \item \textbf{Random Forest:} Random forests have in recent years proven to be effective in many standard classification problems, and were thus considered as an a priori reasonable model to try. Boosting methods have shown similar degrees of success, and were thus tried as well. The advantage of the random forest, as we observed, is that the model is fairly resilient to noise and trains quickly. These advantages are enhanced to some extent by boosting, albeit with an increase in training time.\\
 
     The motivation behind the random forest stack is to create a series of random forests each trained to operate on the output of the previous layer, i.e. the first operates on the input data, the second is trained on the output of the first layer, etc. In this way, each successive layer ideally learns which trees are the best predictors in the previous layer, while lessening the influence of poorly predicting trees. This somewhat uncommon model has been recently used in protein structure prediction, in which successive layers were found to improve prediction accuracy (Eloffson 2014). The advantage of this method, as observed by the author of that paper, were in iteratively improving predictions. For the voting classifier problem, no consistent increase in training scores were observed; given the increased cost of training these models, no further investigation was conducted.
 
-    \item \textbf{Linear Methods:}
-
     \item \textbf{Mixed Ensembles:} The motivation for creating mixed ensembles came from the belief that our random forest and neural network models were learning the data in a complementary matter, and could thus be aggregated to smooth out any biases. This exhibited some success (in particular, our most successful models ended up being these ensembles), although the level of improvement was limited. The advantage of this classifier was in increasing expressive power, while the downside was of course the increased training costs.
+
+    \item \textbf{Linear Methods:}
 
     % If you would like to insert a figure, you can just use the following five lines, replacing the image path with your own and the caption with a 1-2 sentence description of what the image is and how it is relevant or useful.
     % \begin{figure}[H]
@@ -175,23 +185,20 @@ Finally, in SGD, we measured the effect of the number of epochs. By manually cap
 \begin{itemize}
 
     \item \boldline{Discoveries} \\
-    The main discovery from this competition was the difficulty of fitting a ``hard" and imbalanaced dataset, and in particular the challenges accompanying creating a model both sufficiently able to fit a training dataset (2008 data) and sufficiently general to adapt to an unknown and distinct new dataset (2012 data). These challenges will be analyzed in more depth in the section below. \\
+    The main discovery from this competition was the difficulty of fitting a ``hard" and imbalanaced dataset, and in particular the challenges accompanying creating a model both sufficiently able to fit a training dataset (2008 data) and sufficiently general to adapt to an unknown and distinct new dataset (2012 data). These challenges will be analyzed in more depth in the section below.
 
-    In terms of models used, we experimented with variants of common models examined in class. In particular, we utilized variations of trees aside from the default CART tree and various linear models. While our best performing models remained standard neural networks (and, on the test dataset, random forests), we certainly learned more about the variants of these models currently in use. In using neural networks, we discovered significant variation between different runs on the same model. In order to compensate for this, we discovered in this case, ensembles always improved on consistency and therefore out of sample performance. \\
+    In terms of models used, we experimented with variants of common models examined in class. In particular, we utilized variations of trees aside from the default CART tree and various linear models. While our best performing models remained standard neural networks (and, on the test dataset, random forests), we certainly learned more about the variants of these models currently in use. In using neural networks, we discovered significant variation between different runs on the same model. In order to compensate for this, we utilized ensembles of networks, which we found improved on consistency and generalization ability.
 
     In examining the occasionally massive changes in the leaderboard between the first and second parts of the competition, and in examining the differing performances of our own models on these two datasets, we also discovered the dangers of overfitting and the propensities of various models for doing so. In particular, we found (after submission) that our more ``general" models (i.e., collections of networks and forests) tended to perform reasonably well on the new dataset, whereas models more prone to overfitting (smaller forests and networks, linear models) tended to suffer more. Considering the large drops experienced by many teams initially above us on the leaderboard, it is our belief that this ``overfitting the leaderboard" was in fact a fairly general problem.
 
     \item \boldline{Challenges} \\
-    As mentioned above, the main problem experienced in the competition was the dataset. In particular, we found that the dataset was lopsided (~75\% of those polled voted), rather different from the test set (in which ~65\% of those polled voted), and very noisy (i.e., even the best/most overfitted models were unable to break 80\% classification accuracy). In dealing with such a dataset, we found that most models performed within a percent or two of each other, which made distinguishing the best models somewhat difficult. Further, it meant that it was very easy to fall into a trap of overfitting (i.e., gridsearching parameters, submitting an excessive number of models, and falsely concluding that the models that best fit the data did so because they were the best models). We managed to avoid this reasonably well, although we could have improved on our part 2 score had we selected better. Were we to do this competition again, we would have put more thought into how to best select models. \\
+    As mentioned above, the main problem experienced in the competition was the dataset. In particular, we found that the dataset was lopsided (~75\% of those polled voted), rather different from the test set (in which ~65\% of those polled voted), and very noisy (i.e., even the best/most overfitted models were unable to break 80\% classification accuracy). In dealing with such a dataset, we found that most models performed within a percent or two of each other, which made distinguishing the best models somewhat difficult. Further, it meant that it was very easy to fall into a trap of overfitting (i.e., gridsearching parameters, submitting an excessive number of models, and falsely concluding that the models that best fit the data did so because they were the best models). We managed to avoid this reasonably well, although we could have improved on our part 2 score had we selected better. Were we to do this competition again, we would have put more thought into how to best select models.
 
-    Within the dataset, we also found that many of the parameters were either repeated, arbitrary (i.e., identification numbers), or answered for only a very small number of responders (i.e., several questions focused very specifically on certain subsets of the population, and therefore had response rates in the hundreds). We curated the dataset and removed many of these parameters from consideration, although determining whether or not a parameter should be included was not always a clear decision. Were we to redo this competition, we would have curated the dataset in a more principled (and, ideally, automated) manner, through some manner of cross-validation on model performance with various parameters removed. We would also likely have removed even more parameters; it is our belief that this might help with the generalization accuracy of the model. \\
+    Within the dataset, we also found that many of the parameters were either repeated, arbitrary (i.e., identification numbers), or answered for only a very small number of responders (i.e., several questions focused very specifically on certain subsets of the population, and therefore had response rates in the hundreds). We curated the dataset and removed many of these parameters from consideration, although determining whether or not a parameter should be included was not always a clear decision. Were we to redo this competition, we would have curated the dataset in a more principled (and, ideally, automated) manner, through some manner of cross-validation on model performance with various parameters removed. We would also likely have removed even more parameters; it is our belief that this might help with the generalization accuracy of the model.
 
-    Another challenge we faced was with TensorFlow. We sunk a significant quantity of time in trying to get TensorFlow to train on the data but ultimately, it was unsuccessful. No matter what parameters we chose (network dimensions, initial weights, activation functions), the network trained in the exact same way, converging to 0.7446 in sample accuracy. Even after we curated the data, TensorFlow still converged to this value. Ultimately, we resorted to using sklearn's implementation of a neural network and that ended up being our best performing model. \\
+    Another challenge we faced was with TensorFlow. We sunk a significant quantity of time in trying to get TensorFlow to train on the data, but ultimately it was unsuccessful. No matter what parameters we chose (network dimensions, initial weights, activation functions), the network trained in the exact same way, converging to 0.7446 in sample accuracy and predicting that all data points are voters. Even after we curated the data, TensorFlow still converged to this value. Ultimately, we resorted to using sklearn's implementation of a neural network and that ended up being our best performing model. \\
 
     We additionally encountered problems with resource limitations in training large models. While most of our models trained in reasonable time, we found that some (in particular, certain variants of random forests and SVMs) were slow enough to be infeasible, in addition to using massive amounts of memory ($> $ 10 GB). \\
-
-    \item \boldline{Concluding Remarks} \\
-    % Insert text here.
 
 \end{itemize}
 
