@@ -55,14 +55,13 @@
 
     \item \boldline{Models and techniques tried}
     \begin{itemize}
-    % Insert text here. Bullet points can be made using '\item'. Models and techniques should be bolded using '\textbf{}'.
-    \item \textbf{Neural Network:} 
+    \item \textbf{Neural Network:} We first used TensorFlow's implementation of a neural network but after being unsuccessful with that, we switched over to sklearn's implementation. Using 5-fold cross-validation, we settled on parameters to use and then we trained an ensemble of them to counteract the variation between different runs.
 
-    \item \textbf{Random Forest:} We experimented with various types of random forest-based classifiers. In addition to the standard random forest model contained in sklearn, we examined boosted trees, as well as a feed-forward stack of random forest classifiers. We observed classification accuracies in the range of 0.77-0.78, depending on the validation set and stack depth.\\
+    \item \textbf{Random Forest:} We experimented with various types of random forest-based classifiers. In addition to the standard random forest model contained in sklearn, we examined boosted trees, as well as a feed-forward stack of random forest classifiers. We observed classification accuracies in the range of 0.77-0.78, depending on the validation set and stack depth.
 
     \item \textbf{Linear Models:}
 
-    \item \textbf{Mixed Ensembles:} We considered ensembles of neural networks and random forests, and in particular created ensembles of our best-performing individual models. In particular, we tried ensembles of neural networks and random forests. We observed classification scores slightly above 0.78.\\
+    \item \textbf{Mixed Ensembles:} We considered ensembles of neural networks and random forests, and in particular created ensembles of our best-performing individual models. In particular, we tried ensembles of neural networks and random forests. We observed classification scores slightly above 0.78.
 
     \end{itemize}
 
@@ -98,7 +97,9 @@
     \item \boldline{Details of models and techniques}
     \begin{itemize}
     % Insert text here. Bullet points can be made using '\item'.
-    \item \textbf{Neural Network:}
+    \item \textbf{Neural Network:} In working with neural networks, we first used Keras with a TenserFlow backend. However, we ran into significant issues with this. In particular, no matter what parameters we chose (network dimension, initial weights, activation functions, dropout rate), the network always converged to predicting the same thing, all 1s. We could not figure out a way around this so we switched libraries to sklearn's implementation of a neural network. \\
+
+    In using 5-fold cross-validation, we found that smaller networks worked better, likely because they had better generalization. We settled on networks of dimensions similar to \texttt{(100,50)} for the models we used. We also trained these using the early stopping parameter in sklearn's library. However, we found that there was significant variation between different runs of the same network. In order to counter this, we trained an ensemble of networks, with the same parameters.
 
     \item \textbf{Random Forest:} Random forests have in recent years proven to be effective in many standard classification problems, and were thus considered as an a priori reasonable model to try. Boosting methods have shown similar degrees of success, and were thus tried as well. The advantage of the random forest, as we observed, is that the model is fairly resilient to noise and trains quickly. These advantages are enhanced to some extent by boosting, albeit with an increase in training time.\\
 
